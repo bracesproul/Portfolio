@@ -1,0 +1,12 @@
+.paper-container {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    max-width: 400px;
+    padding: 0.5rem;
+}
+
+.subhedding {
+    font-size: 20px;
+    line-height: 22px;
+}

@@ -1,0 +1,135 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.lightTheme {
+  background-color: #FFF;
+  color: #363537;
+}
+
+.darkTheme {
+  padding: 0;
+  background-color: #363537;
+  color: #FAFAFA;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.pageHeader {
+  font-size: 40px;
+  line-height: 50px;
+}
+
+.pageBody {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.sectionWrapperOne {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  background-color: #363537;
+}
+
+.sectionWrapperTwo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+  background-color: #29282a;
+}
+
+.spanLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  padding: 0.5rem;
+  margin: auto; 
+}
+
+.spanRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  padding: 0.5rem;
+  margin: auto;
+}
+
+.sectionHeader {
+  font-size: 30px;
+}
+
+.portfolioSection {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin-left: 40%;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.portfolioHeader {
+
+}
+
+.contactSection {
+
+}
