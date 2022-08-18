@@ -67,104 +67,6 @@ const projectDetails:ProjectInfoProps[] = [
                 images: []
         },
 ]
-
-function Projects(props: {projectsRef: null | React.MutableRefObject<HTMLInputElement>}): JSX.Element {
-
-        function evenOrOdd(num: number) {
-                return num % 2 === 0 ? 'left' : 'right';
-        }
-
-        return (
-            <Box ref={props.projectsRef} id='projects' sx={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    width: '100%',
-                    height: '100%',
-                    margin: 'auto',
-                    paddingTop: '10%',
-                    paddingBottom: '10%',
-            }}>
-                    {projectDetails.map((project, index) => (
-                        <Slide direction={evenOrOdd(index)} in={true} mountOnEnter unmountOnExit>
-                                <Card
-                                    key={index}
-                                    elevation={5}
-                                    sx={{
-                                            maxWidth: '500px',
-                                            padding: '10px',
-                                            margin: 'auto',
-                                            height: '550px',
-                                            justifyContent: 'center',
-                                    }}
-                                >
-                                        <CardContent>
-                                                <Typography sx={{
-                                                        fontSize: '24px',
-                                                        fontWeight: '700',
-                                                }}>
-                                                        {project.title}
-                                                </Typography>
-                                                <Typography sx={{
-                                                        fontSize: '20px',
-                                                        fontWeight: '500',
-                                                }}>
-                                                        {project.description}
-                                                </Typography>
-
-                                                <ProjectTechnologies
-                                                    frontend={project.technologies.frontend}
-                                                    backend={project.technologies.backend}
-                                                />
-
-                                                <Typography sx={{
-                                                        fontSize: '18px',
-                                                        fontWeight: '500',
-                                                        paddingTop: '10px'
-                                                }}>
-                                                        Visit the site by clicking <Link
-                                                    href={project.siteUrl}
-                                                    sx={{
-                                                            cursor: 'pointer'
-                                                    }}
-                                                > here
-                                                </Link>.
-                                                </Typography>
-                                                <Typography sx={{
-                                                        fontSize: '18px',
-                                                        fontWeight: '500',
-                                                }}>
-                                                        Frontend <Link
-                                                    href={project.frontendUrl}
-                                                    sx={{
-                                                            cursor: 'pointer'
-                                                    }}
-                                                > GitHub repository
-                                                </Link>.
-                                                </Typography>
-                                                <Typography sx={{
-                                                        fontSize: '18px',
-                                                        fontWeight: '500',
-                                                }}>
-                                                        Backend <Link
-                                                    href={project.backendUrl}
-                                                    sx={{
-                                                            cursor: 'pointer'
-                                                    }}
-                                                > GitHub repository
-                                                </Link>.
-                                                </Typography>
-                                                <ProjectLinks
-                                                    siteUrl={project.siteUrl}
-                                                    frontendUrl={project.frontendUrl}
-                                                    backendUrl={project.backendUrl} />
-                                        </CardContent>
-                                </Card>
-                        </Slide>
-                    ))}
-            </Box>
-        )
-}
-
 export default function ProjectsV(props: {projectsRef: null | React.MutableRefObject<HTMLInputElement>}): JSX.Element {
 
         function evenOrOdd(num: number) {
@@ -172,51 +74,99 @@ export default function ProjectsV(props: {projectsRef: null | React.MutableRefOb
         }
 
         return (
-            <Box sx={{ margin: '0 auto', paddingBottom: '5rem'}}>
-                    <Grid sx={{ marginTop: '5rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
-                            {projectDetails.map((project, index) => (
-                                <Slide direction={evenOrOdd(index)} in={true} mountOnEnter unmountOnExit>
-                                        <Grid item xs={6}>
-                                                <Card
-                                                    key={index}
-                                                    elevation={5}
-                                                    sx={{
-                                                            maxWidth: '500px',
-                                                            padding: '10px',
-                                                            margin: 'auto',
-                                                            height: '550px',
-                                                            justifyContent: 'center',
-                                                    }}
-                                                >
-                                                        <CardContent>
-                                                                <Typography sx={{
-                                                                        fontSize: '24px',
-                                                                        fontWeight: '700',
-                                                                }}>
-                                                                        {project.title}
-                                                                </Typography>
-                                                                <Typography sx={{
-                                                                        fontSize: '20px',
-                                                                        fontWeight: '500',
-                                                                }}>
-                                                                        {project.description}
-                                                                </Typography>
-                                                                <Divider />
-                                                                <ProjectTechnologies
-                                                                    frontend={project.technologies.frontend}
-                                                                    backend={project.technologies.backend}
-                                                                />
-                                                                <Divider />
-                                                                <ProjectLinks
-                                                                    siteUrl={project.siteUrl}
-                                                                    frontendUrl={project.frontendUrl}
-                                                                    backendUrl={project.backendUrl} />
-                                                        </CardContent>
-                                                </Card>
-                                        </Grid>
-                                </Slide>
-                            ))}
-                    </Grid>
-            </Box>
+            <>
+                    <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex' }, margin: '0 auto', paddingBottom: '5rem'}}>
+                            <Grid sx={{ marginTop: '5rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
+                                    {projectDetails.map((project, index) => (
+                                        <Slide direction={evenOrOdd(index)} in={true} mountOnEnter unmountOnExit>
+                                                <Grid item xs={6}>
+                                                        <Card
+                                                            key={index}
+                                                            elevation={5}
+                                                            sx={{
+                                                                    maxWidth: '500px',
+                                                                    padding: '10px',
+                                                                    margin: 'auto',
+                                                                    height: '550px',
+                                                                    justifyContent: 'center',
+                                                            }}
+                                                        >
+                                                                <CardContent>
+                                                                        <Typography sx={{
+                                                                                fontSize: '24px',
+                                                                                fontWeight: '700',
+                                                                        }}>
+                                                                                {project.title}
+                                                                        </Typography>
+                                                                        <Typography sx={{
+                                                                                fontSize: '20px',
+                                                                                fontWeight: '500',
+                                                                        }}>
+                                                                                {project.description}
+                                                                        </Typography>
+                                                                        <Divider />
+                                                                        <ProjectTechnologies
+                                                                            frontend={project.technologies.frontend}
+                                                                            backend={project.technologies.backend}
+                                                                        />
+                                                                        <Divider />
+                                                                        <ProjectLinks
+                                                                            siteUrl={project.siteUrl}
+                                                                            frontendUrl={project.frontendUrl}
+                                                                            backendUrl={project.backendUrl} />
+                                                                </CardContent>
+                                                        </Card>
+                                                </Grid>
+                                        </Slide>
+                                    ))}
+                            </Grid>
+                    </Box>
+                    <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none', xl: 'none' }, flexDirection: 'column', margin: '0 auto', paddingBottom: '5rem', width: '100%', height: '100%', paddingLeft: '2.5%', paddingRight: '2.5%'}}>
+                            <Grid sx={{ display: 'flex', flexDirection: 'column', marginTop: '5rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
+                                    {projectDetails.map((project, index) => (
+                                        <Slide direction={evenOrOdd(index)} in={true} mountOnEnter unmountOnExit>
+                                                <Grid item xs={12}>
+                                                        <Card
+                                                            key={index}
+                                                            elevation={5}
+                                                            sx={{
+                                                                    maxWidth: '500px',
+                                                                    padding: '10px',
+                                                                    margin: 'auto',
+                                                                    height: '550px',
+                                                                    justifyContent: 'center',
+                                                            }}
+                                                        >
+                                                                <CardContent>
+                                                                        <Typography sx={{
+                                                                                fontSize: '24px',
+                                                                                fontWeight: '700',
+                                                                        }}>
+                                                                                {project.title}
+                                                                        </Typography>
+                                                                        <Typography sx={{
+                                                                                fontSize: '20px',
+                                                                                fontWeight: '500',
+                                                                        }}>
+                                                                                {project.description}
+                                                                        </Typography>
+                                                                        <Divider />
+                                                                        <ProjectTechnologies
+                                                                            frontend={project.technologies.frontend}
+                                                                            backend={project.technologies.backend}
+                                                                        />
+                                                                        <Divider />
+                                                                        <ProjectLinks
+                                                                            siteUrl={project.siteUrl}
+                                                                            frontendUrl={project.frontendUrl}
+                                                                            backendUrl={project.backendUrl} />
+                                                                </CardContent>
+                                                        </Card>
+                                                </Grid>
+                                        </Slide>
+                                    ))}
+                            </Grid>
+                    </Box>
+            </>
         )
 }
