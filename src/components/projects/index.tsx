@@ -26,31 +26,11 @@ type ProjectInfoProps = {
 
 const projectDetails:ProjectInfoProps[] = [
         {
-                title: 'Covid Statistics',
-                description: 'An application for analyzing COVID-19 statistics, retrieved using a custom web scraper.',
-                technologies: {
-                        frontend: [
-                                { name: 'Next.js', icon: <TechnologyIcons reactIcon />, url: 'https://nextjs.org/' },
-                                { name: 'Firebase', icon: <TechnologyIcons firebaseIcon />, url: 'https://firebase.google.com/' },
-                                { name: 'CSS', icon: <TechnologyIcons cssIcon />, url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
-                        ],
-                        backend: [
-                                { name: 'Node.js', icon: <TechnologyIcons nodeIcon />, url: 'https://nodejs.org/en/' },
-                                { name: 'Express', icon: <TechnologyIcons expressIcon />, url: 'https://expressjs.com/' },
-                                { name: 'Puppeteer', icon: <TechnologyIcons puppeteerIcon />, url: 'https://pptr.dev/' },
-                        ],
-                },
-                siteUrl: 'https://covidstatistics.co/',
-                frontendUrl: 'https://github.com/bracesproul/Covid-Statistics',
-                backendUrl: 'https://github.com/bracesproul/Web-scraper-and-API',
-                images: []
-        },
-        {
                 title: 'Earmark',
                 description: 'An all-in-one web application to help you keep track of all your finances, in one place.',
                 technologies: {
                         frontend: [
-                                { name: 'Next.js', icon: <TechnologyIcons reactIcon />, url: 'https://nextjs.org/' },
+                                { name: 'Next.js', icon: <TechnologyIcons nextIcon />, url: 'https://nextjs.org/' },
                                 { name: 'TypeScript', icon: <TechnologyIcons typeScriptIcon />, url: 'https://www.typescriptlang.org/' },
                                 { name: 'Firebase', icon: <TechnologyIcons firebaseIcon />, url: 'https://firebase.google.com/' },
                                 { name: 'Material-UI', icon: <TechnologyIcons muiIcon />, url: 'https://mui.com/' },
@@ -66,6 +46,42 @@ const projectDetails:ProjectInfoProps[] = [
                 backendUrl: 'https://github.com/bracesproul/earmark-backend',
                 images: []
         },
+        {
+                title: 'Covid Statistics',
+                description: 'An application for analyzing COVID-19 statistics, retrieved using a custom web scraper.',
+                technologies: {
+                        frontend: [
+                                { name: 'Next.js', icon: <TechnologyIcons nextIcon />, url: 'https://nextjs.org/' },
+                                { name: 'Firebase', icon: <TechnologyIcons firebaseIcon />, url: 'https://firebase.google.com/' },
+                                { name: 'CSS', icon: <TechnologyIcons cssIcon />, url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
+                        ],
+                        backend: [
+                                { name: 'Node.js', icon: <TechnologyIcons nodeIcon />, url: 'https://nodejs.org/en/' },
+                                { name: 'Express', icon: <TechnologyIcons expressIcon />, url: 'https://expressjs.com/' },
+                                { name: 'Puppeteer', icon: <TechnologyIcons puppeteerIcon />, url: 'https://pptr.dev/' },
+                        ],
+                },
+                siteUrl: 'https://covidstatistics.co/',
+                frontendUrl: 'https://github.com/bracesproul/Covid-Statistics',
+                backendUrl: 'https://github.com/bracesproul/Web-scraper-and-API',
+                images: []
+        },
+        {
+                title: 'Personal Portfolio',
+                description: 'A simple, one page personal portfolio.',
+                technologies: {
+                        frontend: [
+                                { name: 'React.js', icon: <TechnologyIcons reactIcon />, url: 'https://reactjs.org/' },
+                                { name: 'TypeScript', icon: <TechnologyIcons typeScriptIcon />, url: 'https://www.typescriptlang.org/' },
+                                { name: 'CSS', icon: <TechnologyIcons cssIcon />, url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
+                        ],
+                        backend: [],
+                },
+                siteUrl: '/',
+                frontendUrl: 'https://github.com/bracesproul/Portfolio',
+                backendUrl: '',
+                images: []
+        },
 ]
 export default function ProjectsV(props: {projectsRef: null | React.MutableRefObject<HTMLInputElement>}): JSX.Element {
 
@@ -79,7 +95,7 @@ export default function ProjectsV(props: {projectsRef: null | React.MutableRefOb
                             <Grid sx={{ marginTop: '5rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
                                     {projectDetails.map((project, index) => (
                                         <Slide direction={evenOrOdd(index)} in={true} mountOnEnter unmountOnExit>
-                                                <Grid item xs={6}>
+                                                <Grid item xs={4}>
                                                         <Card
                                                             key={index}
                                                             elevation={5}

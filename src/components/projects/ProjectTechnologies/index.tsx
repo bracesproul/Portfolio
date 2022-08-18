@@ -30,74 +30,78 @@ export default function ProjectTechnologies({ frontend, backend }: ProjectTechno
                         Technologies
                     </Typography>
                 </Grid>
-                <Grid item xs={6}>
-                    <Box sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                    }}>
-                        <Typography sx={{
-                            fontSize: '20px',
-                            fontWeight: '500',
+                { frontend.length !== 0 && (
+                    <Grid item xs={6}>
+                        <Box sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
                         }}>
-                            Frontend:
-                        </Typography>
-                        <List dense>
-                            {frontend.map((technology, index) => (
-                                <ListItem key={index} >
-                                    <ListItemIcon sx={{
-                                        marginRight: '-20px',
-                                        marginLeft: '-20px',
-                                    }}>
-                                        {technology.icon}
-                                    </ListItemIcon>
-                                    <ListItemText sx={{ marginTop: '-5px', marginBottom: '-5px' }}>
-                                        <Typography sx={{
-                                            fontWeight: '700'
+                            <Typography sx={{
+                                fontSize: '20px',
+                                fontWeight: '500',
+                            }}>
+                                Frontend:
+                            </Typography>
+                            <List dense>
+                                {frontend.map((technology, index) => (
+                                    <ListItem key={index} >
+                                        <ListItemIcon sx={{
+                                            marginRight: '-20px',
+                                            marginLeft: '-20px',
                                         }}>
-                                            <Link href={technology.url} sx={{ cursor: 'pointer' }}>
-                                                {technology.name}
-                                            </Link>
-                                        </Typography>
-                                    </ListItemText>
-                                </ListItem>
-                            ))}
-                        </List>
-                    </Box>
-                </Grid>
-                <Grid item xs={6}>
-                    <Box sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                    }}>
-                        <Typography sx={{
-                            fontSize: '20px',
-                            fontWeight: '500',
+                                            {technology.icon}
+                                        </ListItemIcon>
+                                        <ListItemText sx={{ marginTop: '-5px', marginBottom: '-5px' }}>
+                                            <Typography sx={{
+                                                fontWeight: '700'
+                                            }}>
+                                                <Link href={technology.url} sx={{ cursor: 'pointer' }}>
+                                                    {technology.name}
+                                                </Link>
+                                            </Typography>
+                                        </ListItemText>
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </Box>
+                    </Grid>
+                ) }
+                { backend.length !== 0 && (
+                    <Grid item xs={6}>
+                        <Box sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
                         }}>
-                            Backend:
-                        </Typography>
-                        <List dense>
-                            {backend.map((technology, index) => (
-                                <ListItem key={index}>
-                                    <ListItemIcon sx={{
-                                        marginRight: '-20px',
-                                        marginLeft: '-20px',
-                                    }}>
-                                        {technology.icon}
-                                    </ListItemIcon>
-                                    <ListItemText sx={{ marginTop: '-5px', marginBottom: '-5px' }}>
-                                        <Typography sx={{
-                                            fontWeight: '700'
+                            <Typography sx={{
+                                fontSize: '20px',
+                                fontWeight: '500',
+                            }}>
+                                Backend:
+                            </Typography>
+                            <List dense>
+                                {backend.map((technology, index) => (
+                                    <ListItem key={index}>
+                                        <ListItemIcon sx={{
+                                            marginRight: '-20px',
+                                            marginLeft: '-20px',
                                         }}>
-                                            <Link href={technology.url} sx={{ cursor: 'pointer' }}>
-                                                {technology.name}
-                                            </Link>
-                                        </Typography>
-                                    </ListItemText>
-                                </ListItem>
-                            ))}
-                        </List>
-                    </Box>
-                </Grid>
+                                            {technology.icon}
+                                        </ListItemIcon>
+                                        <ListItemText sx={{ marginTop: '-5px', marginBottom: '-5px' }}>
+                                            <Typography sx={{
+                                                fontWeight: '700'
+                                            }}>
+                                                <Link href={technology.url} sx={{ cursor: 'pointer' }}>
+                                                    {technology.name}
+                                                </Link>
+                                            </Typography>
+                                        </ListItemText>
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </Box>
+                    </Grid>
+                ) }
             </Grid>
         </>
     )
