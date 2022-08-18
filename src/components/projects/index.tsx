@@ -1,5 +1,5 @@
 import TechnologyIcons from "./TechnologyIcons";
-import {Box, Card, CardContent, Divider, Grid, Link, Typography} from "@mui/material";
+import {Box, Card, CardContent, Divider, Grid, Link, Tooltip, Typography} from "@mui/material";
 import ProjectTechnologies from "./ProjectTechnologies";
 import ProjectLinks from "./ProjectLinks";
 import React from "react";
@@ -18,6 +18,7 @@ type ProjectInfoProps = {
                 frontend: TechnologiesObjectProps[],
                 backend: TechnologiesObjectProps[]
         },
+        tooltip: string | null,
         siteUrl: string,
         frontendUrl: string,
         backendUrl: string,
@@ -41,6 +42,7 @@ const projectDetails:ProjectInfoProps[] = [
                                 { name: 'Plaid API', icon: <TechnologyIcons apiIcon />, url: 'https://plaid.com/' },
                         ],
                 },
+                tooltip: null,
                 siteUrl: 'https://earmakr-alpha.vercel.app/',
                 frontendUrl: 'https://github.com/bracesproul/earmark-frontend',
                 backendUrl: 'https://github.com/bracesproul/earmark-backend',
@@ -61,6 +63,7 @@ const projectDetails:ProjectInfoProps[] = [
                                 { name: 'Puppeteer', icon: <TechnologyIcons puppeteerIcon />, url: 'https://pptr.dev/' },
                         ],
                 },
+                tooltip: 'The backend server is turned off to conserve funds, data has not been updated since February 3, 2022.',
                 siteUrl: 'https://covidstatistics.co/',
                 frontendUrl: 'https://github.com/bracesproul/Covid-Statistics',
                 backendUrl: 'https://github.com/bracesproul/Web-scraper-and-API',
@@ -73,10 +76,12 @@ const projectDetails:ProjectInfoProps[] = [
                         frontend: [
                                 { name: 'React.js', icon: <TechnologyIcons reactIcon />, url: 'https://reactjs.org/' },
                                 { name: 'TypeScript', icon: <TechnologyIcons typeScriptIcon />, url: 'https://www.typescriptlang.org/' },
+                                { name: 'Material-UI', icon: <TechnologyIcons muiIcon />, url: 'https://mui.com/' },
                                 { name: 'CSS', icon: <TechnologyIcons cssIcon />, url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
                         ],
                         backend: [],
                 },
+                tooltip: null,
                 siteUrl: '/',
                 frontendUrl: 'https://github.com/bracesproul/Portfolio',
                 backendUrl: '',
@@ -129,7 +134,9 @@ export default function ProjectsV(props: {projectsRef: null | React.MutableRefOb
                                                                         <ProjectLinks
                                                                             siteUrl={project.siteUrl}
                                                                             frontendUrl={project.frontendUrl}
-                                                                            backendUrl={project.backendUrl} />
+                                                                            backendUrl={project.backendUrl}
+                                                                            tooltip={project.tooltip}
+                                                                        />
                                                                 </CardContent>
                                                         </Card>
                                                 </Grid>
@@ -175,7 +182,9 @@ export default function ProjectsV(props: {projectsRef: null | React.MutableRefOb
                                                                         <ProjectLinks
                                                                             siteUrl={project.siteUrl}
                                                                             frontendUrl={project.frontendUrl}
-                                                                            backendUrl={project.backendUrl} />
+                                                                            backendUrl={project.backendUrl}
+                                                                            tooltip={project.tooltip}
+                                                                        />
                                                                 </CardContent>
                                                         </Card>
                                                 </Grid>
