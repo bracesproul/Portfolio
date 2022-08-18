@@ -54,7 +54,7 @@ export default function ProjectTechnologies({ frontend, backend }: ProjectTechno
                                         <Typography sx={{
                                             fontWeight: '700'
                                         }}>
-                                            <Link href={technology.url} sx={{ cursor: 'pointer', color: '#fafafa' }}>
+                                            <Link href={technology.url} sx={{ cursor: 'pointer' }}>
                                                 {technology.name}
                                             </Link>
                                         </Typography>
@@ -88,7 +88,7 @@ export default function ProjectTechnologies({ frontend, backend }: ProjectTechno
                                         <Typography sx={{
                                             fontWeight: '700'
                                         }}>
-                                            <Link href={technology.url} sx={{ cursor: 'pointer', color: '#fafafa' }}>
+                                            <Link href={technology.url} sx={{ cursor: 'pointer' }}>
                                                 {technology.name}
                                             </Link>
                                         </Typography>
