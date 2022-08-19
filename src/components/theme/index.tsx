@@ -18,7 +18,7 @@ interface IOnClickProps {
     onModeClick: (mode:string) => void;
     modeBool: boolean;
 }
-export default function AppThemeButton({onModeClick, modeBool}:IOnClickProps): JSX.Element {
+export default function AppThemeButton(): JSX.Element {
     const themeHook = useTheme();
     const [currentTheme, setCurrentTheme] = useState<boolean>(true);
 
@@ -79,6 +79,7 @@ export default function AppThemeButton({onModeClick, modeBool}:IOnClickProps): J
                             background: 'linear-gradient(to right, #74e5eb, #8fb8c7)',
                         }
                     }}
+                    href='/contact'
                 >
                     <Typography sx={{
                         fontWeight: '700',
@@ -135,6 +136,7 @@ export default function AppThemeButton({onModeClick, modeBool}:IOnClickProps): J
                             background: 'linear-gradient(to right, #74e5eb, #8fb8c7)',
                         }
                     }}
+                    href='/contact'
                 >
                     <Typography sx={{
                         fontWeight: '700',

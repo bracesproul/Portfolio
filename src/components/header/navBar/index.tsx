@@ -66,7 +66,7 @@ const navBarPropsSocial:NavBarPropsType = [
     },
 ];
 
-export default function NavBar({onModeClick, modeBool}:IOnClickProps): JSX.Element {
+export default function NavBar(): JSX.Element {
 
     return (
         <>

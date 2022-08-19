@@ -92,8 +92,19 @@ export default function Main(): JSX.Element {
                 width: '100%',
                 height: '100%',
             }}>
-                <NavBar onModeClick={onModeClick} modeBool={!modeBool} />
-                <AppTheme onModeClick={onModeClick} modeBool={!modeBool} />
+                <Box
+                    sx={{
+                        position: 'fixed',
+                        top: '0',
+                        left: '0',
+                        width: '100vw',
+                        zIndex: '99',
+                        background: "#f2f2f2",
+                    }}
+                >
+                    <NavBar />
+                    <AppTheme />
+                </Box>
                 <Box sx={{
                     display: 'flex',
                     flexDirection: 'column',
