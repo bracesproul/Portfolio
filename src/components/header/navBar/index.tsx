@@ -1,13 +1,18 @@
 import {
     alpha,
-    Box, Divider, Grid,
-    IconButton, Menu, MenuItem, MenuProps, styled,
-    Tooltip, Typography
+    Box,
+    Divider,
+    Grid,
+    IconButton,
+    Menu,
+    MenuItem,
+    MenuProps,
+    styled,
+    Tooltip,
+    Typography,
+    Link
 } from "@mui/material";
-import { Link } from "react-router-dom";
 import { Icon } from '@iconify/react';
-import AppTheme from '../../theme'
-import {Button} from "@mui/material/";
 import {useState} from "react";
 
 type NavBarPropsType = {
@@ -179,22 +184,34 @@ function MobileNavBar(): JSX.Element {
                 onClose={handleClose}
             >
                 {navBarPropsSocial.map((navBarProp, index) => (
-                    <MenuItem
-                        key={index}
-                        onClick={() => handleClose(navBarProp.href)}
-                        disableRipple
-                    >
-                        {navBarProp.icon}
-                        <Typography sx={{
-                            fontSize: '17px',
-                            paddingLeft: '1rem',
-                            fontWeight: '700',
-                        }}>
-                            {navBarProp.mobileText}
-                        </Typography>
-                    </MenuItem>
-                ))}
+                    <>
+                        <MenuItem
+                            key={index}
+                            onClick={() => handleClose(navBarProp.href)}
+                            disableRipple
+                        >
+                            {navBarProp.icon}
+                            <Link
+                                href={navBarProp.href}
+                                target="_blank"
+                                rel="noopener"
+                                sx={{
+                                    textDecoration: 'none',
+                                    color: 'inherit',
+                                }}
+                            >
+                                <Typography sx={{
+                                    fontSize: '17px',
+                                    paddingLeft: '1rem',
+                                    fontWeight: '700',
+                                }}>
+                                    {navBarProp.mobileText}
+                                </Typography>
+                            </Link>
+                        </MenuItem>
+                    </>
 
+                ))}
             </StyledMenu>
         </div>
     );

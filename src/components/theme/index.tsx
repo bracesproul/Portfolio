@@ -31,61 +31,119 @@ export default function AppThemeButton({onModeClick, modeBool}:IOnClickProps): J
     }, [themeHook.mode])
 
     return (
-        <Box sx={{ display: 'flex', position: 'absolute', top: '0', right: '0', margin: '1rem' }}>
-            {currentTheme && (
-                <Tooltip title='Toggle Theme'>
-                    <Slide
-                        direction="down"
-                        in={currentTheme}
-                        mountOnEnter
-                        unmountOnExit
-                    >
-                        <IconButton
-                            aria-label='Toggle Theme'
-                            onClick={() => themeHook.changeTheme('dark')}
-                            sx={{ marginRight: '1rem' }}
+        <>
+            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex' }, position: 'absolute', top: '0', right: '0', margin: '1rem' }}>
+                {currentTheme && (
+                    <Tooltip title='Toggle Theme'>
+                        <Slide
+                            direction="down"
+                            in={currentTheme}
+                            mountOnEnter
+                            unmountOnExit
                         >
-                            <LightModeIcon />
-                        </IconButton>
-                    </Slide>
-                </Tooltip>
-            )}
-            {!currentTheme && (
-                <Tooltip title='Toggle Theme'>
-                    <Slide
-                        direction="down"
-                        in={!currentTheme}
-                        mountOnEnter
-                        unmountOnExit
-                    >
-                        <IconButton
-                            aria-label='Toggle Theme'
-                            onClick={() => themeHook.changeTheme('light')}
-                            sx={{ marginRight: '1rem' }}
+                            <IconButton
+                                aria-label='Toggle Theme'
+                                onClick={() => themeHook.changeTheme('dark')}
+                                sx={{ marginRight: '1rem' }}
+                            >
+                                <LightModeIcon />
+                            </IconButton>
+                        </Slide>
+                    </Tooltip>
+                )}
+                {!currentTheme && (
+                    <Tooltip title='Toggle Theme'>
+                        <Slide
+                            direction="down"
+                            in={!currentTheme}
+                            mountOnEnter
+                            unmountOnExit
                         >
-                            <DarkModeIcon />
-                        </IconButton>
-                    </Slide>
-                </Tooltip>
-            )}
-            <Button
-                variant="contained"
-                endIcon={ <ArrowCircleRightIcon /> }
-                sx={{
-                    marginRight: '1rem',
-                    background: 'linear-gradient(to right, #74d9eb, #8fb0c7)',
-                    "&:hover": {
-                        background: 'linear-gradient(to right, #74e5eb, #8fb8c7)',
-                    }
-                }}
-            >
-                <Typography sx={{
-                    fontWeight: '700',
-                    fontSize: '15px',
-                }}>
-                    Contact
-                </Typography>
-            </Button>
-        </Box>
+                            <IconButton
+                                aria-label='Toggle Theme'
+                                onClick={() => themeHook.changeTheme('light')}
+                                sx={{ marginRight: '1rem' }}
+                            >
+                                <DarkModeIcon />
+                            </IconButton>
+                        </Slide>
+                    </Tooltip>
+                )}
+                <Button
+                    variant="contained"
+                    endIcon={ <ArrowCircleRightIcon /> }
+                    sx={{
+                        marginRight: '1rem',
+                        background: 'linear-gradient(to right, #74d9eb, #8fb0c7)',
+                        "&:hover": {
+                            background: 'linear-gradient(to right, #74e5eb, #8fb8c7)',
+                        }
+                    }}
+                >
+                    <Typography sx={{
+                        fontWeight: '700',
+                        fontSize: '15px',
+                    }}>
+                        Contact
+                    </Typography>
+                </Button>
+            </Box>
+            <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none', xl: 'none' }, position: 'absolute', top: '0', right: '0', marginTop: '1rem',  }}>
+                {currentTheme && (
+                    <Tooltip title='Toggle Theme'>
+                        <Slide
+                            direction="down"
+                            in={currentTheme}
+                            mountOnEnter
+                            unmountOnExit
+                        >
+                            <IconButton
+                                aria-label='Toggle Theme'
+                                onClick={() => themeHook.changeTheme('dark')}
+                                sx={{ marginRight: '1rem' }}
+                            >
+                                <LightModeIcon />
+                            </IconButton>
+                        </Slide>
+                    </Tooltip>
+                )}
+                {!currentTheme && (
+                    <Tooltip title='Toggle Theme'>
+                        <Slide
+                            direction="down"
+                            in={!currentTheme}
+                            mountOnEnter
+                            unmountOnExit
+                        >
+                            <IconButton
+                                aria-label='Toggle Theme'
+                                onClick={() => themeHook.changeTheme('light')}
+                                sx={{ marginRight: '1rem' }}
+                            >
+                                <DarkModeIcon />
+                            </IconButton>
+                        </Slide>
+                    </Tooltip>
+                )}
+                <Button
+                    variant="contained"
+                    endIcon={ <ArrowCircleRightIcon /> }
+                    sx={{
+                        marginRight: '1rem',
+                        background: 'linear-gradient(to right, #74d9eb, #8fb0c7)',
+                        "&:hover": {
+                            background: 'linear-gradient(to right, #74e5eb, #8fb8c7)',
+                        }
+                    }}
+                >
+                    <Typography sx={{
+                        fontWeight: '700',
+                        fontSize: '15px',
+                    }}>
+                        Contact
+                    </Typography>
+                </Button>
+            </Box>
+        </>
     )
 }
