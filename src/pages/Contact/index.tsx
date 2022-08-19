@@ -111,15 +111,18 @@ export default function Main(): JSX.Element {
         await axios(config)
             .then((response) => {
                 console.log(response);
-                if (response.data.mailgunResponse.message === 'Queued. Thank you.') setSuccessRequest(true);
+                if (response.data.mailgunResponse.message === 'Queued. Thank you.') {
+                    setSuccessRequest(true);
+                    clearForm();
+                }
             });
     }
 
     function clearForm() {
-/*        setSubject('');
+        setSubject('');
         setName('');
         setEmail('');
-        setMessage('');*/
+        setMessage('');
     }
 
     return (
@@ -189,7 +192,6 @@ export default function Main(): JSX.Element {
                     <CardActions>
                         <SendMessageButton
                             handleSubmitOutside={handleSubmit}
-                            clearForm={clearForm}
                             messageSuccess={successRequest}
                         />
                     </CardActions>
@@ -199,7 +201,7 @@ export default function Main(): JSX.Element {
     )
 }
 
-function SendMessageButton({ handleSubmitOutside, clearForm, messageSuccess }: { handleSubmitOutside: () => void, clearForm: () => void, messageSuccess: boolean }) {
+function SendMessageButton({ handleSubmitOutside, messageSuccess }: { handleSubmitOutside: () => void, messageSuccess: boolean }) {
     const themeHook = useTheme();
     const [submitted, setSubmitted] = useState(false);
     const [isPending, setIsPending] = useState(false);
@@ -217,12 +219,6 @@ function SendMessageButton({ handleSubmitOutside, clearForm, messageSuccess }: {
             setShowAnimation(true);
         }
     }, [messageSuccess]);
-
-    useEffect(() => {
-        if (showAnimation) {
-            clearForm();
-        }
-    }, [clearForm, showAnimation]);
 
     function handleSubmit() {
         setSubmitted(true);
