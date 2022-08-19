@@ -3,7 +3,7 @@ import React, {
     useContext,
     createContext,
     useState,
-    useMemo, useEffect
+    useMemo, useEffect, useRef
 } from "react";
 import {PaletteMode} from "@mui/material";
 import { createTheme } from '@mui/material/styles';
@@ -12,6 +12,7 @@ interface IUseProvideTheme {
     theme: any;
     mode: PaletteMode;
     changeTheme: (mode: PaletteMode) => void;
+    mounted: () => void;
 }
 
 type ThemeProviderProps = {
@@ -27,7 +28,14 @@ export function ProvideTheme({ children }: ThemeProviderProps): JSX.Element {
 
 const useProvideTheme = () => {
     const [mode, setMode] = useState<PaletteMode>('dark');
+    const mounted = useRef<boolean>(false);
     const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+
+    useEffect(() => {
+        if (!mounted.current) {
+            mounted.current = true;
+        }
+    }, [])
 
     useEffect(() => {
         const localStorageMode = localStorage.getItem('mode') || 'dark';
@@ -74,28 +82,6 @@ const useProvideTheme = () => {
         }
     }
 
-    /*const getDesignTokens = (mode:PaletteMode) => ({
-        palette: {
-            mode,
-            ...(mode === 'light'
-                ? {
-                    // palette values for light mode
-                    text: {
-                        primary: 'rgba(0, 0, 0, 0.87)',
-                    },
-                    background: {
-                        default: '#f2f2f2',
-                    }
-                }
-                : {
-                    // palette values for dark mode
-                    text: {
-                        primary: '#f2f2f2'
-                    },
-                }),
-        },
-    });*/
-
     function changeTheme(mode:PaletteMode): void {
         localStorage.setItem('mode', mode);
         setMode(mode);
@@ -105,6 +91,7 @@ const useProvideTheme = () => {
         theme,
         mode,
         changeTheme,
+        mounted,
     };
 }
 

@@ -21,6 +21,7 @@ import NavBar from "../../components/header/navBar";
 import AppTheme from "../../components/theme";
 import SendIcon from '@mui/icons-material/Send';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import axios from "axios";
 
 type ContactOptionProps = {
     autoFocus?: boolean;
@@ -41,6 +42,7 @@ export default function Main(): JSX.Element {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [successRequest, setSuccessRequest] = useState<boolean>(false);
 
     const contactOptions:ContactOptionProps = [
         {
@@ -90,15 +92,34 @@ export default function Main(): JSX.Element {
         },
     ]
 
-    function handleSubmit() {
+    async function handleSubmit() {
         console.log('submit contact form');
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: "cors",
+            method: 'get',
+            params: {
+                subject,
+                name,
+                email,
+                message,
+            },
+            url: 'https://rocky-chamber-38113.herokuapp.com/api/sendEmail'
+        }
+        await axios(config)
+            .then((response) => {
+                console.log(response);
+                if (response.data.mailgunResponse.message === 'Queued. Thank you.') setSuccessRequest(true);
+            });
     }
 
     function clearForm() {
-        setSubject('');
+/*        setSubject('');
         setName('');
         setEmail('');
-        setMessage('');
+        setMessage('');*/
     }
 
     return (
@@ -169,6 +190,7 @@ export default function Main(): JSX.Element {
                         <SendMessageButton
                             handleSubmitOutside={handleSubmit}
                             clearForm={clearForm}
+                            messageSuccess={successRequest}
                         />
                     </CardActions>
                 </Card>
@@ -177,7 +199,7 @@ export default function Main(): JSX.Element {
     )
 }
 
-function SendMessageButton({ handleSubmitOutside, clearForm }: { handleSubmitOutside: () => void, clearForm: () => void }) {
+function SendMessageButton({ handleSubmitOutside, clearForm, messageSuccess }: { handleSubmitOutside: () => void, clearForm: () => void, messageSuccess: boolean }) {
     const themeHook = useTheme();
     const [submitted, setSubmitted] = useState(false);
     const [isPending, setIsPending] = useState(false);
@@ -186,12 +208,15 @@ function SendMessageButton({ handleSubmitOutside, clearForm }: { handleSubmitOut
     useEffect(() => {
         if (submitted) {
             setIsPending(true);
-            setTimeout(() => {
-                setIsPending(false);
-                setShowAnimation(true);
-            }, 3000);
         }
     }, [submitted]);
+
+    useEffect(() => {
+        if (messageSuccess) {
+            setIsPending(false);
+            setShowAnimation(true);
+        }
+    }, [messageSuccess]);
 
     useEffect(() => {
         if (showAnimation) {
