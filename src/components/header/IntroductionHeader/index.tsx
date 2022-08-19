@@ -20,7 +20,7 @@ export default function IntroductionHeader(): JSX.Element {
             </Slide>
             <Slide direction="right" in={true} mountOnEnter unmountOnExit>
                 <Typography sx={{
-                    fontSize: '60px',
+                    fontSize: { xs: '50px', sm: '55px', md: '70px', lg: '70px', xl: '70px' },
                     fontWeight: '900',
                     letterSpacing: '-5px',
                     lineHeight: '60px',
