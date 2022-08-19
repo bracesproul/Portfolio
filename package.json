@@ -15,7 +15,6 @@
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
     "axios": "^0.27.2",
-    "mailgun-js": "^0.22.0",
     "moment": "^2.29.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -49,9 +48,6 @@
     ]
   },
   "devDependencies": {
-    "@iconify/react": "^3.2.2",
-    "@types/mailgun-js": "^0.22.12",
-    "dotenv": "^16.0.1",
-    "crypto": false
+    "@iconify/react": "^3.2.2"
   }
 }
