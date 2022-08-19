@@ -111,7 +111,7 @@ export default function NavBar(): JSX.Element {
                     { navBarPropsSocial.map((navBarProp, index) => (
                         <Grid item xs={2} key={index}>
                             <Tooltip title={navBarProp.title}>
-                                <IconButton aria-label={navBarProp.ariaLabel} href={navBarProp.href} target={navBarProp.target} rel="noopener">
+                                <IconButton aria-label={navBarProp.ariaLabel} href={navBarProp.href} target={navBarProp.target} rel={navBarProp.rel}>
                                     {navBarProp.icon}
                                 </IconButton>
                             </Tooltip>
@@ -213,8 +213,8 @@ function MobileNavBar(): JSX.Element {
                             {navBarProp.icon}
                             <Link
                                 href={navBarProp.href}
-                                target="_blank"
-                                rel="noopener"
+                                target={navBarProp.target}
+                                rel={navBarProp.rel}
                                 sx={{
                                     textDecoration: 'none',
                                     color: 'inherit',
