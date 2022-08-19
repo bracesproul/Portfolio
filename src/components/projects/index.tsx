@@ -120,7 +120,7 @@ export default function Projects(props: {projectsRef: null | React.MutableRefObj
                                                                     maxWidth: '500px',
                                                                     padding: '10px',
                                                                     margin: 'auto',
-                                                                    height: '550px',
+                                                                    minHeight: '450px',
                                                                     justifyContent: 'center',
                                                             }}
                                                         >

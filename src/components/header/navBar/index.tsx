@@ -184,9 +184,8 @@ function MobileNavBar(): JSX.Element {
                 onClose={handleClose}
             >
                 {navBarPropsSocial.map((navBarProp, index) => (
-                    <>
+                    <Grid key={index}>
                         <MenuItem
-                            key={index}
                             onClick={() => handleClose(navBarProp.href)}
                             disableRipple
                         >
@@ -209,8 +208,7 @@ function MobileNavBar(): JSX.Element {
                                 </Typography>
                             </Link>
                         </MenuItem>
-                    </>
-
+                    </Grid>
                 ))}
             </StyledMenu>
         </div>
