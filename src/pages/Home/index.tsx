@@ -11,9 +11,8 @@ import {
     CardContent,
     CardActions,
 } from '@mui/material/';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import NavBar from '../../components/header/navBar'
+import { useTheme } from '../../hooks/useTheme';
 import AppTheme from '../../components/theme';
 import Projects from '../../components/projects';
 import Introduction from '../../components/header';
@@ -26,6 +25,7 @@ interface IIntroductionCardProps {
 }
 
 export default function Main(): JSX.Element {
+    const themeHook = useTheme();
     const [mode, setMode] = React.useState<string | null>('light');
     const [modeBool, setModeBool] = React.useState<boolean>(true);
     const isMounted = useRef(false);
@@ -86,18 +86,19 @@ export default function Main(): JSX.Element {
     }
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={themeHook.theme}>
             <CssBaseline />
-            <AppTheme onModeClick={onModeClick} modeBool={!modeBool} />
             <Box sx={{
                 width: '100%',
                 height: '100%',
-                marginTop: '5rem',
             }}>
+                <NavBar onModeClick={onModeClick} modeBool={!modeBool} />
+                <AppTheme onModeClick={onModeClick} modeBool={!modeBool} />
                 <Box sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     margin: 'auto',
+                    marginTop: '5rem',
                 }}>
                     <Introduction projectsRef={projectsRef} />
                 </Box>

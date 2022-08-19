@@ -7,17 +7,20 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
+import { ProvideTheme } from "./hooks/useTheme";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-      <BrowserRouter>
-          <Routes>
-              <Route path="/" element={<Home />}>
-              </Route>
-          </Routes>
-      </BrowserRouter>
+      <ProvideTheme>
+          <BrowserRouter>
+              <Routes>
+                  <Route path="/" element={<Home />}>
+                  </Route>
+              </Routes>
+          </BrowserRouter>
+      </ProvideTheme>
   </React.StrictMode>
 );

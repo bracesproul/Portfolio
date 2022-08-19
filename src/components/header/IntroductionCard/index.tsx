@@ -39,7 +39,7 @@ export default function IntroductionCard(props: {projectsRef: null | React.Mutab
                             fontSize: '20px',
                             fontWeight: '500',
                         }}>
-                            I'm a self taught developer from Berkeley, California, interested in web development and DevOps.
+                            I'm a self taught software engineer from Berkeley, California, interested in web development and DevOps.
                             My current stack is JavaScript, React, and Node. Currently, I'm teaching myself the ins and outs of Docker and Kubernetes.
                         </Typography>
                         <Typography sx={{

@@ -18,12 +18,15 @@ export default function IntroductionHeader(): JSX.Element {
                     Hey,
                 </Typography>
             </Slide>
-            <Slide direction="down" in={true} mountOnEnter unmountOnExit>
+            <Slide direction="right" in={true} mountOnEnter unmountOnExit>
                 <Typography sx={{
                     fontSize: '60px',
                     fontWeight: '900',
                     letterSpacing: '-5px',
-                    lineHeight: '60px'
+                    lineHeight: '60px',
+                    background: 'linear-gradient(to right, #74d9eb, #8fb0c7)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
                 }}>
                     I'm Brace!
                 </Typography>

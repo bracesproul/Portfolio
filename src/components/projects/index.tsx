@@ -11,6 +11,8 @@ type TechnologiesObjectProps = {
         url: string
 }
 
+type slideProps = "right" | "up" | "left" | "down" | undefined;
+
 type ProjectInfoProps = {
         title: string,
         description: string,
@@ -22,7 +24,8 @@ type ProjectInfoProps = {
         siteUrl: string,
         frontendUrl: string,
         backendUrl: string,
-        images: string[]
+        images: string[],
+        slide: slideProps,
 };
 
 const projectDetails:ProjectInfoProps[] = [
@@ -43,10 +46,11 @@ const projectDetails:ProjectInfoProps[] = [
                         ],
                 },
                 tooltip: null,
-                siteUrl: 'https://earmakr-alpha.vercel.app/',
+                siteUrl: 'https://earmark-alpha.vercel.app/',
                 frontendUrl: 'https://github.com/bracesproul/earmark-frontend',
                 backendUrl: 'https://github.com/bracesproul/earmark-backend',
-                images: []
+                images: [],
+                slide: 'right'
         },
         {
                 title: 'Covid Statistics',
@@ -67,7 +71,8 @@ const projectDetails:ProjectInfoProps[] = [
                 siteUrl: 'https://covidstatistics.co/',
                 frontendUrl: 'https://github.com/bracesproul/Covid-Statistics',
                 backendUrl: 'https://github.com/bracesproul/Web-scraper-and-API',
-                images: []
+                images: [],
+                slide: 'up'
         },
         {
                 title: 'Personal Portfolio',
@@ -85,10 +90,11 @@ const projectDetails:ProjectInfoProps[] = [
                 siteUrl: '/',
                 frontendUrl: 'https://github.com/bracesproul/Portfolio',
                 backendUrl: '',
-                images: []
+                images: [],
+                slide: 'left'
         },
 ]
-export default function ProjectsV(props: {projectsRef: null | React.MutableRefObject<HTMLInputElement>}): JSX.Element {
+export default function Projects(props: {projectsRef: null | React.MutableRefObject<HTMLInputElement>}): JSX.Element {
 
         function evenOrOdd(num: number) {
                 return num % 2 === 0 ? 'right' : 'left';
@@ -99,7 +105,13 @@ export default function ProjectsV(props: {projectsRef: null | React.MutableRefOb
                     <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex' }, margin: '0 auto', paddingBottom: '5rem'}}>
                             <Grid sx={{ marginTop: '5rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
                                     {projectDetails.map((project, index) => (
-                                        <Slide direction={evenOrOdd(index)} in={true} mountOnEnter unmountOnExit>
+                                        <Slide
+                                            direction={project.slide}
+                                            in={true}
+                                            mountOnEnter
+                                            unmountOnExit
+                                            key={index}
+                                        >
                                                 <Grid item xs={4}>
                                                         <Card
                                                             key={index}
@@ -147,7 +159,13 @@ export default function ProjectsV(props: {projectsRef: null | React.MutableRefOb
                     <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none', xl: 'none' }, flexDirection: 'column', margin: '0 auto', paddingBottom: '5rem', width: '100%', height: '100%', paddingLeft: '2.5%', paddingRight: '2.5%'}}>
                             <Grid sx={{ display: 'flex', flexDirection: 'column', marginTop: '5rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
                                     {projectDetails.map((project, index) => (
-                                        <Slide direction={evenOrOdd(index)} in={true} mountOnEnter unmountOnExit>
+                                        <Slide
+                                            key={index}
+                                            direction={evenOrOdd(index)}
+                                            in={true}
+                                            mountOnEnter
+                                            unmountOnExit
+                                        >
                                                 <Grid item xs={12}>
                                                         <Card
                                                             key={index}

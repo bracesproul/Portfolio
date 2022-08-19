@@ -25,6 +25,8 @@ export default function ProjectLinks({ siteUrl, frontendUrl, backendUrl, tooltip
 
                                         Visit the site by clicking <Link
                                         href={siteUrl}
+                                        target="_blank"
+                                        rel="noopener"
                                         sx={{
                                             cursor: 'pointer'
                                         }}
@@ -43,6 +45,8 @@ export default function ProjectLinks({ siteUrl, frontendUrl, backendUrl, tooltip
 
                                         Visit the site by clicking <Link
                                         href={siteUrl}
+                                        target="_blank"
+                                        rel="noopener"
                                         sx={{
                                             cursor: 'pointer'
                                         }}
@@ -63,6 +67,8 @@ export default function ProjectLinks({ siteUrl, frontendUrl, backendUrl, tooltip
                                     }}>
                                         Frontend <Link
                                         href={frontendUrl}
+                                        target="_blank"
+                                        rel="noopener"
                                         sx={{
                                             cursor: 'pointer'
                                         }}
@@ -79,6 +85,8 @@ export default function ProjectLinks({ siteUrl, frontendUrl, backendUrl, tooltip
                                     }}>
                                         Frontend <Link
                                         href={frontendUrl}
+                                        target="_blank"
+                                        rel="noopener"
                                         sx={{
                                             cursor: 'pointer'
                                         }}
@@ -99,6 +107,8 @@ export default function ProjectLinks({ siteUrl, frontendUrl, backendUrl, tooltip
                                     }}>
                                         Backend <Link
                                         href={backendUrl}
+                                        target="_blank"
+                                        rel="noopener"
                                         sx={{
                                             cursor: 'pointer'
                                         }}
@@ -115,6 +125,8 @@ export default function ProjectLinks({ siteUrl, frontendUrl, backendUrl, tooltip
                                     }}>
                                         Backend <Link
                                         href={backendUrl}
+                                        target="_blank"
+                                        rel="noopener"
                                         sx={{
                                             cursor: 'pointer'
                                         }}
@@ -137,6 +149,8 @@ export default function ProjectLinks({ siteUrl, frontendUrl, backendUrl, tooltip
 
                             Visit the site by clicking <Link
                             href={siteUrl}
+                            target="_blank"
+                            rel="noopener"
                             sx={{
                                 cursor: 'pointer'
                             }}
@@ -151,6 +165,8 @@ export default function ProjectLinks({ siteUrl, frontendUrl, backendUrl, tooltip
                         }}>
                             Frontend <Link
                             href={frontendUrl}
+                            target="_blank"
+                            rel="noopener"
                             sx={{
                                 cursor: 'pointer'
                             }}
@@ -165,6 +181,8 @@ export default function ProjectLinks({ siteUrl, frontendUrl, backendUrl, tooltip
                         }}>
                             Backend <Link
                             href={backendUrl}
+                            target="_blank"
+                            rel="noopener"
                             sx={{
                                 cursor: 'pointer'
                             }}
