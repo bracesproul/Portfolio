@@ -26,64 +26,7 @@ interface IIntroductionCardProps {
 
 export default function Main(): JSX.Element {
     const themeHook = useTheme();
-    const [mode, setMode] = React.useState<string | null>('light');
-    const [modeBool, setModeBool] = React.useState<boolean>(true);
-    const isMounted = useRef(false);
-    // const projectsRef = useRef<null | HTMLDivElement>(null);
     const projectsRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
-
-    const getDesignTokens = (mode:string | null) => ({
-        palette: {
-            mode,
-            ...(mode === 'light'
-                ? {
-                    // palette values for light mode
-                    text: {
-                        primary: 'rgba(0, 0, 0, 0.87)',
-                    },
-                    background: {
-                        default: '#f2f2f2',
-                    }
-                }
-                : {
-                    // palette values for dark mode
-                    text: {
-                        primary: '#f2f2f2'
-                    },
-                }),
-        },
-    });
-
-    useEffect(() => {
-        if (!isMounted.current) {
-            setModeBool(true);
-        }
-    }, [])
-
-
-    useEffect(() => {
-        if (mode === 'light') {
-            setModeBool(true);
-        } else {
-            setModeBool(false);
-        }
-    }, [mode]);
-
-    // Update the theme only if the mode changes
-    const theme = React.useMemo(() => createTheme(getDesignTokens(mode) as any), [mode]);
-
-    useEffect(() => {
-        localStorage.getItem('mode') === 'dark' ? setMode('dark') : setMode('light');
-    }, []);
-
-    function onModeClick(mode:string): void {
-        setLocalStorageMode(mode);
-        setMode(mode);
-    }
-
-    function setLocalStorageMode(currentMode:string): void {
-        localStorage.setItem('mode', currentMode);
-    }
 
     return (
         <ThemeProvider theme={themeHook.theme}>
@@ -99,7 +42,6 @@ export default function Main(): JSX.Element {
                         left: '0',
                         width: '100vw',
                         zIndex: '99',
-                        background: "#f2f2f2",
                     }}
                 >
                     <NavBar />

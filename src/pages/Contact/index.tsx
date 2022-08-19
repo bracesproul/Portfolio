@@ -1,7 +1,9 @@
 import React, {
+    useEffect,
     useState
 } from "react";
-import {Box,
+import {
+    Box,
     Card,
     CardActions,
     CardContent,
@@ -10,13 +12,15 @@ import {Box,
     Typography,
     TextField,
     FormControl,
-    Button,
+    Button, CircularProgress,
 } from "@mui/material";
 import { useTheme } from '../../hooks/useTheme';
 import CssBaseline from "@mui/material/CssBaseline";
 import {ThemeProvider} from "@mui/material/styles";
 import NavBar from "../../components/header/navBar";
 import AppTheme from "../../components/theme";
+import SendIcon from '@mui/icons-material/Send';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 type ContactOptionProps = {
     autoFocus?: boolean;
@@ -53,7 +57,7 @@ export default function Main(): JSX.Element {
         },
         {
             id: 'name-input',
-            label: 'Name',
+            label: 'Full name',
             name: 'name',
             type: 'text',
             value: name,
@@ -64,7 +68,7 @@ export default function Main(): JSX.Element {
         },
         {
             id: 'email-input',
-            label: 'Email Address',
+            label: 'Email address',
             name: 'email',
             type: 'email',
             value: email,
@@ -88,6 +92,13 @@ export default function Main(): JSX.Element {
 
     function handleSubmit() {
         console.log('submit contact form');
+    }
+
+    function clearForm() {
+        setSubject('');
+        setName('');
+        setEmail('');
+        setMessage('');
     }
 
     return (
@@ -115,7 +126,7 @@ export default function Main(): JSX.Element {
                         paddingTop: '15vh',
                         paddingBottom: '3rem'
                     }}>
-                        Let's connect
+                        Let's connect.
                     </Typography>
                 </Slide>
                 <Card sx={{
@@ -155,12 +166,136 @@ export default function Main(): JSX.Element {
                         </FormControl>
                     </CardContent>
                     <CardActions>
-                        <Button variant="contained" onClick={handleSubmit}>
-                            Send
-                        </Button>
+                        <SendMessageButton
+                            handleSubmitOutside={handleSubmit}
+                            clearForm={clearForm}
+                        />
                     </CardActions>
                 </Card>
             </Box>
         </ThemeProvider>
     )
 }
+
+function SendMessageButton({ handleSubmitOutside, clearForm }: { handleSubmitOutside: () => void, clearForm: () => void }) {
+    const themeHook = useTheme();
+    const [submitted, setSubmitted] = useState(false);
+    const [isPending, setIsPending] = useState(false);
+    const [showAnimation, setShowAnimation] = useState(false);
+
+    useEffect(() => {
+        if (submitted) {
+            setIsPending(true);
+            setTimeout(() => {
+                setIsPending(false);
+                setShowAnimation(true);
+            }, 3000);
+        }
+    }, [submitted]);
+
+    useEffect(() => {
+        if (showAnimation) {
+            clearForm();
+        }
+    }, [clearForm, showAnimation]);
+
+    function handleSubmit() {
+        setSubmitted(true);
+        handleSubmitOutside();
+    }
+
+    function ProgressComponentV2() {
+        return (
+            <Grid sx={{ marginLeft: '5px', marginTop: '5px' }}>
+                <CircularProgress size="1.2rem" color='secondary' />
+            </Grid>
+        )
+    }
+
+    return (
+        <>
+            { !submitted && (
+                <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+                    <Button
+                        variant="contained"
+                        onClick={handleSubmit}
+                        endIcon={<SendIcon />}
+                        sx={{
+                            width: '140px',
+                            height: '37px',
+                            fontWeight: '700',
+                            fontSize: '15px',
+                            background: 'linear-gradient(to right, #74d9eb, #8fb0c7)',
+                            "&:hover": {
+                                background: 'linear-gradient(to right, #74e5eb, #8fb8c7)',
+                            }
+                        }}
+                    >
+                        Send
+                    </Button>
+                </Slide>
+            ) }
+            { isPending && (
+                <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+                    <Button
+                        variant="contained"
+                        endIcon={<ProgressComponentV2 />}
+                        sx={{
+                            cursor: 'auto',
+                            background: themeHook.theme.palette.mode === 'dark' ? '#aed581' : '#689f38',
+                            fontWeight: '700',
+                            fontSize: '15px',
+                            width: '140px',
+                            height: '37px',
+                            '&:hover': {
+                                background: themeHook.theme.palette.mode === 'dark' ? '#aed581' : '#689f38',
+                                cursor: 'auto'
+                            }
+                        }}
+                    >
+                        Sending...
+                    </Button>
+                </Slide>
+            ) }
+            { showAnimation && (
+                <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+                    <Button
+                        disableFocusRipple={true}
+                        disableRipple={true}
+                        variant="contained"
+                        endIcon={<CheckCircleIcon />}
+                        sx={{
+                            cursor: 'auto',
+                            background: themeHook.theme.palette.mode === 'dark' ? themeHook.theme.palette.success.light : themeHook.theme.palette.success.main,
+                            fontWeight: '700',
+                            fontSize: '15px',
+                            width: '140px',
+                            height: '37px',
+                            '&:hover': {
+                                background: themeHook.theme.palette.mode === 'dark' ? themeHook.theme.palette.success.light : themeHook.theme.palette.success.main,
+                                cursor: 'auto'
+                            }
+                        }}
+                    >
+                        Success
+                    </Button>
+                </Slide>
+            ) }
+
+
+        </>
+    )
+}
+/*
+                <Slide direction="up" in={true} mountOnEnter unmountOnExit>
+                    <Button
+                        variant="contained"
+                        startIcon={<ProgressComponent />}
+                        sx={{
+                            background: '#c8e899',
+                            width: '120px',
+                            height: '37px'
+                        }}
+                    ></Button>
+                </Slide>
+ */

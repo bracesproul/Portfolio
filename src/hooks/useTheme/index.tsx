@@ -54,9 +54,9 @@ const useProvideTheme = () => {
                             MuiButton: {
                                 styleOverrides: {
                                     contained: {
-                                        backgroundColor: 'linear-gradient(to right, #74d9eb, #8fb0c7)',
+                                        background: 'linear-gradient(to right, #74d9eb, #8fb0c7)',
                                         '&:hover': {
-                                            backgroundColor: 'linear-gradient(to right, #74d9eb, #8fb0c7)',
+                                            background: 'linear-gradient(to right, #74d9eb, #8fb0c7)',
                                         }
                                     },
                                     root: {
