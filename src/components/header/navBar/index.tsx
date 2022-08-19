@@ -21,6 +21,8 @@ type NavBarPropsType = {
     ariaLabel: string,
     icon: JSX.Element,
     href: string,
+    target: string,
+    rel: string,
 }[];
 
 interface IOnClickProps {
@@ -30,11 +32,22 @@ interface IOnClickProps {
 
 const navBarPropsSocial:NavBarPropsType = [
     {
+        title: 'Homepage',
+        mobileText: 'Home',
+        ariaLabel: 'Home',
+        icon: <Icon icon="ant-design:home-filled" />,
+        href: '/',
+        target: '_self',
+        rel: '',
+    },
+    {
         title: 'My GitHub',
         mobileText: 'GitHub',
         ariaLabel: 'Github profile',
         icon: <Icon icon="akar-icons:github-fill" />,
         href: 'https://github.com/bracesproul',
+        target: '_blank',
+        rel: 'noopener',
     },
     {
         title: 'My LinkedIn',
@@ -42,6 +55,8 @@ const navBarPropsSocial:NavBarPropsType = [
         ariaLabel: 'LinkedIn profile',
         icon: <Icon icon="akar-icons:linkedin-box-fill" />,
         href: 'https://www.linkedin.com/in/brace-sproul-16a185195/',
+        target: '_blank',
+        rel: 'noopener',
     },
     {
         title: 'My Twitter',
@@ -49,6 +64,8 @@ const navBarPropsSocial:NavBarPropsType = [
         ariaLabel: 'Twitter profile',
         icon: <Icon icon="akar-icons:twitter-fill" />,
         href: 'https://twitter.com/BraceSproul',
+        target: '_blank',
+        rel: 'noopener',
     },
     {
         title: 'brace#9974',
@@ -56,6 +73,8 @@ const navBarPropsSocial:NavBarPropsType = [
         ariaLabel: 'Discord profile',
         icon: <Icon icon="akar-icons:discord-fill" />,
         href: 'https://discordapp.com/users/479069058864775180/',
+        target: '_blank',
+        rel: 'noopener',
     },
     {
         title: 'My Resume',
@@ -63,6 +82,8 @@ const navBarPropsSocial:NavBarPropsType = [
         ariaLabel: 'Resume PDF',
         icon: <Icon icon="akar-icons:paper" />,
         href: 'https://docs.google.com/document/d/1qXc6X8zTBI7bM-9Qs8wuiB5LOpJqNZSzRNSndyQ0leA/edit?usp=sharing',
+        target: '_blank',
+        rel: 'noopener',
     },
 ];
 
@@ -90,7 +111,7 @@ export default function NavBar(): JSX.Element {
                     { navBarPropsSocial.map((navBarProp, index) => (
                         <Grid item xs={2} key={index}>
                             <Tooltip title={navBarProp.title}>
-                                <IconButton aria-label={navBarProp.ariaLabel} href={navBarProp.href} target="_blank" rel="noopener">
+                                <IconButton aria-label={navBarProp.ariaLabel} href={navBarProp.href} target={navBarProp.target} rel="noopener">
                                     {navBarProp.icon}
                                 </IconButton>
                             </Tooltip>
