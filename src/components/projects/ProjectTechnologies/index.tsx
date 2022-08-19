@@ -55,7 +55,18 @@ export default function ProjectTechnologies({ frontend, backend }: ProjectTechno
                                             <Typography sx={{
                                                 fontWeight: '700'
                                             }}>
-                                                <Link href={technology.url} sx={{ cursor: 'pointer' }}>
+                                                <Link href={technology.url} sx={{
+                                                    cursor: 'pointer',
+                                                    textDecoration: 'underline',
+                                                    textUnderlineOffset: '5px',
+                                                    transition: 'all 0.2s ease-in-out',
+                                                    letterSpacing: '-0.3px',
+                                                    '&:hover': {
+                                                        color: '#18ab02',
+                                                        letterSpacing: '0px',
+                                                    }
+                                                }}
+                                                >
                                                     {technology.name}
                                                 </Link>
                                             </Typography>
@@ -91,7 +102,18 @@ export default function ProjectTechnologies({ frontend, backend }: ProjectTechno
                                             <Typography sx={{
                                                 fontWeight: '700'
                                             }}>
-                                                <Link href={technology.url} sx={{ cursor: 'pointer' }}>
+                                                <Link href={technology.url} sx={{
+                                                    cursor: 'pointer',
+                                                    textDecoration: 'underline',
+                                                    textUnderlineOffset: '5px',
+                                                    transition: 'all 0.2s ease-in-out',
+                                                    letterSpacing: '-0.3px',
+                                                    '&:hover': {
+                                                        color: '#18ab02',
+                                                        letterSpacing: '0px',
+                                                    }
+                                                }}
+                                                >
                                                     {technology.name}
                                                 </Link>
                                             </Typography>
