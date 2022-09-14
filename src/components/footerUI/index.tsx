@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box, Typography, Link } from "@mui/material";
+import { Box, Typography, Link, Divider } from "@mui/material";
 
 export default function FooterUI() {
     return (
         <footer>
             <Box sx={{
-                height: '50px',
+                height: '5rem',
                 paddingBottom: '1rem',
                 width: '100%',
                 display: 'flex',

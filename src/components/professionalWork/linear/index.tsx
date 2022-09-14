@@ -30,10 +30,10 @@ interface ILinearData {
 
 const linear_data:ILinearData = {
     bulletPoints: [
-        'Architected a new client onboarding process',
-        'Integrated Stripe API for processing payments',
-        'Custom ticket transcripts and logs',
-        'Simple, intuitive question flow for a good user experience'
+        'Architected a new client onboarding process.',
+        'Integrated Stripe API for processing payments.',
+        'Custom Discord tickets, transcripts and logs.',
+        'Simple and intuitive question flow.'
     ],
     technologies: [
         {

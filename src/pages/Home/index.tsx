@@ -37,18 +37,8 @@ export default function Main(): JSX.Element {
                 width: '100%',
                 height: '100%',
             }}>
-                <Box
-                    sx={{
-                        position: 'fixed',
-                        top: '0',
-                        left: '0',
-                        width: '100vw',
-                        zIndex: '99',
-                    }}
-                >
-                    <NavBar />
-                    <AppTheme />
-                </Box>
+                <NavBar />
+                <AppTheme />
                 <Box sx={{
                     display: 'flex',
                     flexDirection: 'column',
