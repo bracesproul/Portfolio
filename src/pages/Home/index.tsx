@@ -20,7 +20,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import ProfessionalWork from '../../components/professionalWork'
 import MyStack from "../../components/myStack";
-
+import FooterUI from "../../components/footerUI";
 
 interface IIntroductionCardProps {
     scrollHandler: () => void;
@@ -114,6 +114,7 @@ export default function Main(): JSX.Element {
                     </Typography>
                     <Projects projectsRef={projectsRef} />
                 </Box>
+                <FooterUI />
             </Box>
         </ThemeProvider>
     )
