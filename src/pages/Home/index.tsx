@@ -18,6 +18,8 @@ import Projects from '../../components/projects';
 import Introduction from '../../components/header';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import ProfessionalWork from '../../components/professionalWork'
+import MyStack from "../../components/myStack";
 
 
 interface IIntroductionCardProps {
@@ -55,11 +57,61 @@ export default function Main(): JSX.Element {
                 }}>
                     <Introduction projectsRef={projectsRef} />
                 </Box>
+
                 <Box sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     margin: 'auto',
+                    marginTop: '5rem',
                 }}>
+                    <Typography sx={{
+                        display: 'flex',
+                        margin: 'auto',
+                        fontSize: { xs: '25px', sm: '30px', md: '45px', lg: '45px', xl: '45px' },
+                        fontWeight: '900',
+                        letterSpacing: { xs: '-2px', sm: '-2px', md: '-3px', lg: '-3px', xl: '-3px' },
+                        lineHeight: '60px'
+                    }}>
+                        My Stack
+                    </Typography>
+                </Box>
+                <MyStack />
+
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    margin: 'auto',
+                    marginTop: '5rem',
+                }}>
+                    <Typography sx={{
+                        display: 'flex',
+                        margin: 'auto',
+                        fontSize: { xs: '25px', sm: '30px', md: '45px', lg: '45px', xl: '45px' },
+                        fontWeight: '900',
+                        letterSpacing: { xs: '-2px', sm: '-2px', md: '-3px', lg: '-3px', xl: '-3px' },
+                        lineHeight: '60px'
+                    }}>
+                        Professional Work
+                    </Typography>
+                </Box>
+                <ProfessionalWork />
+
+                <Box sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    margin: 'auto',
+                    marginTop: '5rem',
+                }}>
+                    <Typography sx={{
+                        display: 'flex',
+                        margin: 'auto',
+                        fontSize: { xs: '25px', sm: '30px', md: '45px', lg: '45px', xl: '45px' },
+                        fontWeight: '900',
+                        letterSpacing: { xs: '-2px', sm: '-2px', md: '-3px', lg: '-3px', xl: '-3px' },
+                        lineHeight: '60px'
+                    }}>
+                        Personal Projects
+                    </Typography>
                     <Projects projectsRef={projectsRef} />
                 </Box>
             </Box>

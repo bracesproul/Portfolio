@@ -117,7 +117,7 @@ export default function Projects(props: {projectsRef: null | React.MutableRefObj
                                                             key={index}
                                                             elevation={5}
                                                             sx={{
-                                                                    maxWidth: '500px',
+                                                                    width: '500px',
                                                                     padding: '10px',
                                                                     margin: 'auto',
                                                                     minHeight: '450px',
@@ -174,7 +174,7 @@ export default function Projects(props: {projectsRef: null | React.MutableRefObj
                                                                     maxWidth: '500px',
                                                                     padding: '10px',
                                                                     margin: 'auto',
-                                                                    height: '550px',
+                                                                    height: '450px',
                                                                     justifyContent: 'center',
                                                             }}
                                                         >
