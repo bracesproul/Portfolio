@@ -103,7 +103,7 @@ export default function Projects(props: {projectsRef: null | React.MutableRefObj
         return (
             <>
                     <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex' }, margin: '0 auto', paddingBottom: '5rem'}}>
-                            <Grid sx={{ marginTop: '5rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
+                            <Grid sx={{ marginTop: '2rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
                                     {projectDetails.map((project, index) => (
                                         <Slide
                                             direction={project.slide}
@@ -157,7 +157,7 @@ export default function Projects(props: {projectsRef: null | React.MutableRefObj
                             </Grid>
                     </Box>
                     <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none', xl: 'none' }, flexDirection: 'column', margin: '0 auto', paddingBottom: '5rem', width: '100%', height: '100%', paddingLeft: '2.5%', paddingRight: '2.5%'}}>
-                            <Grid sx={{ display: 'flex', flexDirection: 'column', marginTop: '5rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
+                            <Grid sx={{ display: 'flex', flexDirection: 'column', marginTop: '2rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
                                     {projectDetails.map((project, index) => (
                                         <Slide
                                             key={index}
