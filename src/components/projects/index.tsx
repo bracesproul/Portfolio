@@ -31,7 +31,7 @@ type ProjectInfoProps = {
 const projectDetails:ProjectInfoProps[] = [
         {
                 title: 'Earmark',
-                description: 'An all-in-one web application to help you keep track of all your finances, in one place.',
+                description: 'An all-in-one web application to help you keep track of all your finances, in one place. Demo login: test@email.com, Test_user1234!',
                 technologies: {
                         frontend: [
                                 { name: 'Next.js', icon: <TechnologyIcons nextIcon />, url: 'https://nextjs.org/' },
@@ -120,7 +120,7 @@ export default function Projects(props: {projectsRef: null | React.MutableRefObj
                                                                     width: '500px',
                                                                     padding: '10px',
                                                                     margin: 'auto',
-                                                                    minHeight: '450px',
+                                                                    height: '450px',
                                                                     justifyContent: 'center',
                                                             }}
                                                         >
@@ -174,7 +174,7 @@ export default function Projects(props: {projectsRef: null | React.MutableRefObj
                                                                     maxWidth: '500px',
                                                                     padding: '10px',
                                                                     margin: 'auto',
-                                                                    height: '450px',
+                                                                    height: '485px',
                                                                     justifyContent: 'center',
                                                             }}
                                                         >
