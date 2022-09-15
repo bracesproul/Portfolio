@@ -36,6 +36,57 @@ type ContactOptionProps = {
     maxRows: number,
 }[];
 
+function handleSendWebhook(subject: string, message: string, email: string, name: string) {
+    axios.get('https://geolocation-db.com/json/')
+        .then((res) => {
+            const url = 'https://discord.com/api/webhooks/1019861600716476498/HLVayUdpqmFXR5sjHwx4KbAviuvCaqxaJ09m0nm8jNUu3m-fKKqU3dEn6HSXtB14fl8g'
+            const jsonPayload = {
+                content: `<@479069058864775180>`,
+                embeds: [
+                    {
+                        title: "Contact Form Submission",
+                        description: `***Contact form submitted*** IP: ***${res.data.IPv4}***`,
+                        fields: [
+                            {
+                                name: "Subject",
+                                value: subject,
+                                inline: true
+                            },
+                            {
+                                name: "Name",
+                                value: name,
+                                inline: true
+                            },
+                            {
+                                name: "Email",
+                                value: email,
+                                inline: true
+                            },
+                            {
+                                name: "Message",
+                                value: message,
+                                inline: true
+                            }
+                        ],
+                        color: 65280,
+                        footer: {
+                            text: 'Portfolio Bot'
+                        },
+                        timestamp: new Date().toISOString()
+                    }
+                ]
+            }
+            axios.post(url, jsonPayload, {
+                headers: { 'Content-Type': 'application/json' },
+            })
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
+        })
+        .catch((err) => {
+            console.error('error getting location', err)
+        })
+}
+
 export default function Main(): JSX.Element {
     const themeHook = useTheme();
     const [subject, setSubject] = useState('');
@@ -108,6 +159,7 @@ export default function Main(): JSX.Element {
             },
             url: 'https://rocky-chamber-38113.herokuapp.com/api/sendEmail'
         }
+        handleSendWebhook(subject, message, email, name)
         await axios(config)
             .then((response) => {
                 console.log(response);

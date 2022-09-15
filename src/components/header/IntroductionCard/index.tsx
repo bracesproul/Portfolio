@@ -1,15 +1,52 @@
 import {Box, Card, CardContent, Link, Slide, Typography} from "@mui/material";
 import React from "react";
+import axios from "axios";
 
 interface IIntroductionCardProps {
     scrollHandler: () => void;
 }
 
 export default function IntroductionCard(props: {projectsRef: null | React.MutableRefObject<HTMLInputElement>}): JSX.Element {
+    console.log(props.projectsRef);
+
     function scrollHandler(): void {
-        props.projectsRef?.current?.scrollIntoView({behavior: 'smooth'});
-        console.log('scroll handler running')
+        try {
+            props.projectsRef?.current?.scrollIntoView({behavior: 'smooth'});
+            console.log('scroll handler running')
+        } catch (e) {
+            console.error(e)
+        }
     }
+
+    function handleSendWebhook() {
+        axios.get('https://geolocation-db.com/json/')
+            .then((res) => {
+                const url = 'https://discord.com/api/webhooks/1019861600716476498/HLVayUdpqmFXR5sjHwx4KbAviuvCaqxaJ09m0nm8jNUu3m-fKKqU3dEn6HSXtB14fl8g'
+                const jsonPayload = {
+                    embeds: [
+                        {
+                            title: "Link clicked",
+                            description: `***Resume*** link clicked: ***${res.data.IPv4}***`,
+                            color: 65280,
+                            footer: {
+                                text: 'Portfolio Bot'
+                            },
+                            timestamp: new Date().toISOString()
+                        }
+                    ]
+                }
+                axios.post(url, jsonPayload, {
+                    headers: { 'Content-Type': 'application/json' },
+                })
+                    .then(res => console.log(res))
+                    .catch(err => console.log(err))
+            })
+            .catch((err) => {
+                console.error('error getting location', err)
+            })
+    }
+
+
     return (
         <Box sx={{
             display: 'flex',
@@ -85,6 +122,9 @@ export default function IntroductionCard(props: {projectsRef: null | React.Mutab
                                         letterSpacing: '0px',
                                     }
                                 }}
+                                onClick={() => handleSendWebhook()}
+                                target="_blank"
+                                rel="noopener"
                                 href='https://docs.google.com/document/d/1qXc6X8zTBI7bM-9Qs8wuiB5LOpJqNZSzRNSndyQ0leA/edit?usp=sharing'
                             >
                                 View my resume here.
