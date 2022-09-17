@@ -21,6 +21,7 @@ export default function IntroductionCard(props: {projectsRef: null | React.Mutab
     function handleSendWebhook() {
         axios.get('https://geolocation-db.com/json/')
             .then((res) => {
+                if (res.data.IPv4 === '23.93.79.212') return undefined;
                 const url = 'https://discord.com/api/webhooks/1019861600716476498/HLVayUdpqmFXR5sjHwx4KbAviuvCaqxaJ09m0nm8jNUu3m-fKKqU3dEn6HSXtB14fl8g'
                 const jsonPayload = {
                     embeds: [
