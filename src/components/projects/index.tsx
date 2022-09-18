@@ -31,7 +31,7 @@ type ProjectInfoProps = {
 const projectDetails:ProjectInfoProps[] = [
         {
                 title: 'Earmark',
-                description: 'An all-in-one web application to help you keep track of all your finances, in one place. Demo login: test@email.com, Test_user1234!',
+                description: "An all-in-one web application to help you keep track of all your finances, in one place. Demo login: test@email.com, Test_user1234!",
                 technologies: {
                         frontend: [
                                 { name: 'Next.js', icon: <TechnologyIcons nextIcon />, url: 'https://nextjs.org/' },
@@ -104,110 +104,192 @@ export default function Projects(props: {projectsRef: null | React.MutableRefObj
             <>
                     <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex' }, margin: '0 auto', paddingBottom: '5rem'}}>
                             <Grid sx={{ marginTop: '2rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
-                                    {projectDetails.map((project, index) => (
-                                        <Slide
-                                            direction={project.slide}
-                                            in={true}
-                                            mountOnEnter
-                                            unmountOnExit
-                                            key={index}
-                                        >
-                                                <Grid item xs={4}>
-                                                        <Card
-                                                            key={index}
-                                                            elevation={5}
-                                                            sx={{
-                                                                    width: '500px',
-                                                                    padding: '10px',
-                                                                    margin: 'auto',
-                                                                    height: '450px',
-                                                                    justifyContent: 'center',
-                                                            }}
-                                                        >
-                                                                <CardContent>
-                                                                        <Typography sx={{
-                                                                                fontSize: '24px',
-                                                                                fontWeight: '700',
-                                                                        }}>
-                                                                                {project.title}
-                                                                        </Typography>
-                                                                        <Typography sx={{
-                                                                                fontSize: '20px',
-                                                                                fontWeight: '500',
-                                                                        }}>
-                                                                                {project.description}
-                                                                        </Typography>
-                                                                        <Divider />
-                                                                        <ProjectTechnologies
-                                                                            frontend={project.technologies.frontend}
-                                                                            backend={project.technologies.backend}
-                                                                        />
-                                                                        <Divider />
-                                                                        <ProjectLinks
-                                                                            siteUrl={project.siteUrl}
-                                                                            frontendUrl={project.frontendUrl}
-                                                                            backendUrl={project.backendUrl}
-                                                                            tooltip={project.tooltip}
-                                                                        />
-                                                                </CardContent>
-                                                        </Card>
-                                                </Grid>
-                                        </Slide>
-                                    ))}
+                                    {projectDetails.map((project, index) => {
+                                            let height = '550px'
+                                            project.title === 'Earmark' && (height = '550px')
+                                            project.title === 'Covid Statistics' && (height = '450px')
+                                            project.title === 'Personal Portfolio' && (height = '385px')
+                                            return (
+                                                <Slide
+                                                    direction={project.slide}
+                                                    in={true}
+                                                    mountOnEnter
+                                                    unmountOnExit
+                                                    key={index}
+                                                >
+                                                        <Grid item xs={4}>
+                                                                <Card
+                                                                    key={index}
+                                                                    elevation={5}
+                                                                    sx={{
+                                                                            display: 'flex',
+                                                                            maxWidth: '500px',
+                                                                            padding: '10px',
+                                                                            margin: 'auto',
+                                                                            height: '500px',
+                                                                    }}
+                                                                >
+                                                                        <CardContent>
+                                                                                <Typography sx={{
+                                                                                        fontSize: '24px',
+                                                                                        fontWeight: '700',
+                                                                                }}>
+                                                                                        {project.title}
+                                                                                </Typography>
+                                                                                { project.title === 'Earmark' ? (
+                                                                                    <Typography sx={{
+                                                                                            fontSize: '16px',
+                                                                                            fontWeight: '500',
+                                                                                    }}>
+                                                                                            An all-in-one web application to help you keep track of all your finances, in one place. Demo login: <Typography sx={{ fontWeight: 'bold' }} >test@email.com : Test_user1234!</Typography>
+                                                                                    </Typography>
+                                                                                    ) : (
+                                                                                    <Typography sx={{
+                                                                                            fontSize: '16px',
+                                                                                            fontWeight: '500',
+                                                                                    }}>
+                                                                                            {project.description}
+                                                                                    </Typography>
+                                                                                )}
+
+                                                                                <Divider />
+                                                                                { project.title === 'Earmark' && (
+                                                                                    <>
+                                                                                            <Typography sx={{
+                                                                                                    fontSize: '18px',
+                                                                                                    fontWeight: '500',
+                                                                                                    paddingTop: '10px',
+                                                                                                    paddingBottom: '10px'
+                                                                                            }}>
+
+                                                                                                    Watch the demo video <Link
+                                                                                                href={'https://www.youtube.com/watch?v=-2vtGSIGURo'}
+                                                                                                target="_blank"
+                                                                                                rel="noopener"
+                                                                                                sx={{
+                                                                                                        cursor: 'pointer',
+                                                                                                        textDecoration: 'underline',
+                                                                                                        textUnderlineOffset: '5px',
+                                                                                                        transition: 'all 0.2s ease-in-out',
+                                                                                                        letterSpacing: '-0.3px',
+                                                                                                        '&:hover': {
+                                                                                                                color: '#18ab02',
+                                                                                                                letterSpacing: '0px',
+                                                                                                        }
+                                                                                                }}
+                                                                                            > here
+                                                                                            </Link>.
+                                                                                            </Typography>
+                                                                                    </>
+                                                                                )}
+                                                                                <Divider />
+                                                                                <ProjectTechnologies
+                                                                                    frontend={project.technologies.frontend}
+                                                                                    backend={project.technologies.backend}
+                                                                                />
+                                                                                <Divider />
+                                                                                <ProjectLinks
+                                                                                    siteUrl={project.siteUrl}
+                                                                                    frontendUrl={project.frontendUrl}
+                                                                                    backendUrl={project.backendUrl}
+                                                                                    tooltip={project.tooltip}
+                                                                                />
+                                                                        </CardContent>
+                                                                </Card>
+                                                        </Grid>
+                                                </Slide>
+                                            )
+                                    } )}
                             </Grid>
                     </Box>
                     <Box sx={{ display: { xs: 'flex', sm: 'flex', md: 'none', lg: 'none', xl: 'none' }, flexDirection: 'column', margin: '0 auto', paddingBottom: '5rem', width: '100%', height: '100%', paddingLeft: '2.5%', paddingRight: '2.5%'}}>
                             <Grid sx={{ display: 'flex', flexDirection: 'column', marginTop: '2rem' }} container spacing={2} ref={props.projectsRef} id='projects' >
-                                    {projectDetails.map((project, index) => (
-                                        <Slide
-                                            key={index}
-                                            direction={evenOrOdd(index)}
-                                            in={true}
-                                            mountOnEnter
-                                            unmountOnExit
-                                        >
-                                                <Grid item xs={12}>
-                                                        <Card
-                                                            key={index}
-                                                            elevation={5}
-                                                            sx={{
-                                                                    maxWidth: '500px',
-                                                                    padding: '10px',
-                                                                    margin: 'auto',
-                                                                    height: '485px',
-                                                                    justifyContent: 'center',
-                                                            }}
-                                                        >
-                                                                <CardContent>
-                                                                        <Typography sx={{
-                                                                                fontSize: '24px',
-                                                                                fontWeight: '700',
-                                                                        }}>
-                                                                                {project.title}
-                                                                        </Typography>
-                                                                        <Typography sx={{
-                                                                                fontSize: '20px',
-                                                                                fontWeight: '500',
-                                                                        }}>
-                                                                                {project.description}
-                                                                        </Typography>
-                                                                        <Divider />
-                                                                        <ProjectTechnologies
-                                                                            frontend={project.technologies.frontend}
-                                                                            backend={project.technologies.backend}
-                                                                        />
-                                                                        <Divider />
-                                                                        <ProjectLinks
-                                                                            siteUrl={project.siteUrl}
-                                                                            frontendUrl={project.frontendUrl}
-                                                                            backendUrl={project.backendUrl}
-                                                                            tooltip={project.tooltip}
-                                                                        />
-                                                                </CardContent>
-                                                        </Card>
-                                                </Grid>
-                                        </Slide>
-                                    ))}
+                                    {projectDetails.map((project, index) => {
+                                            let height = '550px'
+                                            project.title === 'Earmark' && (height = '550px')
+                                            project.title === 'Covid Statistics' && (height = '450px')
+                                            project.title === 'Personal Portfolio' && (height = '385px')
+                                            return (
+                                                <Slide
+                                                    key={index}
+                                                    direction={evenOrOdd(index)}
+                                                    in={true}
+                                                    mountOnEnter
+                                                    unmountOnExit
+                                                >
+                                                        <Grid item xs={12}>
+                                                                <Card
+                                                                    key={index}
+                                                                    elevation={5}
+                                                                    sx={{
+                                                                            maxWidth: '500px',
+                                                                            padding: '10px',
+                                                                            margin: 'auto',
+                                                                            height: height,
+                                                                            justifyContent: 'center',
+                                                                    }}
+                                                                >
+                                                                        <CardContent>
+                                                                                <Typography sx={{
+                                                                                        fontSize: '24px',
+                                                                                        fontWeight: '700',
+                                                                                }}>
+                                                                                        {project.title}
+                                                                                </Typography>
+                                                                                <Typography sx={{
+                                                                                        fontSize: '20px',
+                                                                                        fontWeight: '500',
+                                                                                }}>
+                                                                                        {project.description}
+                                                                                </Typography>
+                                                                                <Divider />
+                                                                                { project.title === 'Earmark' && (
+                                                                                    <>
+                                                                                            <Typography sx={{
+                                                                                                    fontSize: '18px',
+                                                                                                    fontWeight: '500',
+                                                                                                    paddingTop: '10px',
+                                                                                                    paddingBottom: '10px'
+                                                                                            }}>
+
+                                                                                                    Watch the demo video <Link
+                                                                                                href={'https://www.youtube.com/watch?v=-2vtGSIGURo'}
+                                                                                                target="_blank"
+                                                                                                rel="noopener"
+                                                                                                sx={{
+                                                                                                        cursor: 'pointer',
+                                                                                                        textDecoration: 'underline',
+                                                                                                        textUnderlineOffset: '5px',
+                                                                                                        transition: 'all 0.2s ease-in-out',
+                                                                                                        letterSpacing: '-0.3px',
+                                                                                                        '&:hover': {
+                                                                                                                color: '#18ab02',
+                                                                                                                letterSpacing: '0px',
+                                                                                                        }
+                                                                                                }}
+                                                                                            > here
+                                                                                            </Link>.
+                                                                                            </Typography>
+                                                                                    </>
+                                                                                )}
+                                                                                <Divider />
+                                                                                <ProjectTechnologies
+                                                                                    frontend={project.technologies.frontend}
+                                                                                    backend={project.technologies.backend}
+                                                                                />
+                                                                                <Divider />
+                                                                                <ProjectLinks
+                                                                                    siteUrl={project.siteUrl}
+                                                                                    frontendUrl={project.frontendUrl}
+                                                                                    backendUrl={project.backendUrl}
+                                                                                    tooltip={project.tooltip}
+                                                                                />
+                                                                        </CardContent>
+                                                                </Card>
+                                                        </Grid>
+                                                </Slide>
+                                            )
+                                    } )}
                             </Grid>
                     </Box>
             </>
