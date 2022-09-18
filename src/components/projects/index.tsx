@@ -46,7 +46,7 @@ const projectDetails:ProjectInfoProps[] = [
                         ],
                 },
                 tooltip: null,
-                siteUrl: 'https://earmark.sproul.dev/',
+                siteUrl: 'https://earmark.sproul.dev/?newUser=true',
                 frontendUrl: 'https://github.com/bracesproul/earmark-frontend',
                 backendUrl: 'https://github.com/bracesproul/earmark-backend',
                 images: [],
