@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
+import Test from './pages/Test';
 import {
     BrowserRouter,
     Routes,
@@ -18,10 +19,9 @@ root.render(
       <ProvideTheme>
           <BrowserRouter>
               <Routes>
-                  <Route path="/" element={<Home />}>
-                  </Route>
-                  <Route path="/contact" element={<Contact />}>
-                  </Route>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/test" element={<Test />} />
               </Routes>
           </BrowserRouter>
       </ProvideTheme>

@@ -52,6 +52,13 @@ export default function Main(): JSX.Element {
                         {
                             title: "New Visit",
                             description: `Someone just visited the site! IP: ***${res.data.IPv4}***`,
+                            fields: [
+                                {
+                                    name: "City",
+                                    value: res.data.city || 'Unknown',
+                                    inline: true
+                                }
+                            ],
                             color: 65280,
                             footer: {
                                 text: 'Portfolio Bot'
