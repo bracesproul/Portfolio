@@ -59,6 +59,11 @@ export default function Main(): JSX.Element {
                                             name: "City",
                                             value: data.city || 'Unknown',
                                             inline: true
+                                        },
+                                        {
+                                            name: "State",
+                                            value: data.regionName || data.region || 'Unknown',
+                                            inline: true
                                         }
                                     ],
                                     color: 65280,
