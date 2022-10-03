@@ -15,6 +15,8 @@ import {
 import { Icon } from '@iconify/react';
 import {useState} from "react";
 import axios from "axios";
+import dotenv from 'dotenv/config'
+
 
 type NavBarPropsType = {
     title: string,
@@ -92,7 +94,7 @@ function handleSendWebhook(item: string) {
     axios.get('https://geolocation-db.com/json/')
         .then((res) => {
             if (res.data.IPv4 === '23.93.79.212') return undefined;
-            const url = 'https://discord.com/api/webhooks/1019861600716476498/HLVayUdpqmFXR5sjHwx4KbAviuvCaqxaJ09m0nm8jNUu3m-fKKqU3dEn6HSXtB14fl8g'
+            const url = process.env.REACT_APP_DISCORD_URL || process.env.NEXT_PUBLIC_DISCORD_URL
             const jsonPayload = {
                 embeds: [
                     {
@@ -106,7 +108,7 @@ function handleSendWebhook(item: string) {
                     }
                 ]
             }
-            axios.post(url, jsonPayload, {
+            axios.post(url!, jsonPayload, {
                 headers: { 'Content-Type': 'application/json' },
             })
                 .then(res => console.log(res))
