@@ -1,7 +1,8 @@
-import { Box } from '@mui/material'
+import {Box, Grid} from '@mui/material'
 import TechnologyIcons from "../projects/TechnologyIcons";
 import React from "react";
 import LinearCardUI from "./linear";
+import CreateCardUI from "./create";
 
 type TechnologiesObjectProps = {
     name: string,
@@ -30,8 +31,13 @@ type ProjectInfoProps = {
 export default function LinearToolsCard() {
     //sx={{ display: 'flex', flexDirection: 'row', margin: 'auto', width: '500px', height: 'maxContent'}}
     return (
-        < >
-            <LinearCardUI />
-        </>
+        <Grid container spacing={0}>
+            <Grid item xs={6}>
+                <LinearCardUI />
+            </Grid>
+            <Grid item xs={6}>
+                <CreateCardUI />
+            </Grid>
+        </Grid>
     )
 }
