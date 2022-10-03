@@ -18,7 +18,7 @@ function handleSendWebhook() {
     axios.get('https://geolocation-db.com/json/')
         .then((res) => {
             // if (res.data.IPv4 === '23.93.79.212') return undefined;
-            axios.get(`http://ip-api.com/json/${res.data.IPv4}`)
+            axios.get(`https://ip-api.com/json/${res.data.IPv4}`)
                 .then(({ data }) => {
                     const url = process.env.REACT_APP_DISCORD_URL || process.env.NEXT_PUBLIC_DISCORD_URL
                     const jsonPayload = {
