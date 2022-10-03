@@ -18,7 +18,11 @@ function handleSendWebhook() {
     axios.get('https://geolocation-db.com/json/')
         .then((res) => {
             // if (res.data.IPv4 === '23.93.79.212') return undefined;
-            axios.get(`http://ip-api.com/json/${res.data.IPv4}?fields=region,regionName,city`)
+            axios.get(`https://api.apilayer.com/ip_to_location/${res.data.IPv4}`, {
+                headers: {
+                    'apikey': process.env.REACT_APP_IP_API_KEY! || process.env.NEXT_PUBLIC_IP_API_KEY!
+                }
+            })
                 .then(({ data }) => {
                     const url = process.env.REACT_APP_DISCORD_URL || process.env.NEXT_PUBLIC_DISCORD_URL
                     const jsonPayload = {
@@ -34,7 +38,7 @@ function handleSendWebhook() {
                                     },
                                     {
                                         name: "State",
-                                        value: data.regionName || data.region || 'Unknown',
+                                        value: data.region_name || 'Unknown',
                                         inline: true
                                     }
                                 ],
