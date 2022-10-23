@@ -9,7 +9,12 @@ interface IIntroductionCardProps {
 
 function Introduction(props: {projectsRef: null | React.MutableRefObject<HTMLInputElement>}): JSX.Element {
     return (
-        <>
+        <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            margin: 'auto',
+            marginTop: '5rem',
+        }}>
             <Box sx={{ display: {xs: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex'}, flexDirection: 'column', width: '100%', height: '100%', margin: 'auto' }}>
                 <IntroductionHeader />
                 <IntroductionCard projectsRef={props.projectsRef} />
@@ -20,7 +25,7 @@ function Introduction(props: {projectsRef: null | React.MutableRefObject<HTMLInp
                     <IntroductionCard projectsRef={props.projectsRef} />
                 </Box>
             </Box>
-        </>
+        </Box>
     )
 }
 

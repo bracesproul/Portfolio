@@ -80,31 +80,7 @@ export default function IntroductionCard(props: {projectsRef: null | React.Mutab
                             fontWeight: '500',
                         }}>
                             I'm a self taught software engineer from Berkeley California, interested in web development and DevOps.
-                            My current stack is JavaScript, React, and Node. At the moment, I'm teaching myself the ins and outs of Docker and Kubernetes.
-                        </Typography>
-                        <Typography sx={{
-                            fontSize: '20px',
-                            fontWeight: '700',
-                            paddingTop: '7px',
-                            textDecoration: 'underline',
-                            textUnderlineOffset: '5px',
-                            transition: 'all 0.2s ease-in-out',
-                            letterSpacing: '-0.3px',
-                        }}>
-                            <Link
-                                sx={{
-                                    textDecoration: 'none',
-                                    cursor: 'pointer',
-                                    transition: 'all 0.2s ease-in-out',
-                                    '&:hover': {
-                                        color: '#18ab02',
-                                        letterSpacing: '0px',
-                                    }
-                                }}
-                                onClick={() => scrollHandler()}
-                            >
-                                Check out some of my projects by clicking  here.
-                            </Link>
+                            My current stack is TypeScript, React, and Node. At the moment, I'm teaching myself the ins and outs of Docker and Kubernetes.
                         </Typography>
                         <Typography sx={{
                             fontSize: '20px',

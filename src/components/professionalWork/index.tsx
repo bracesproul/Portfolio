@@ -31,13 +31,9 @@ type ProjectInfoProps = {
 export default function LinearToolsCard() {
     //sx={{ display: 'flex', flexDirection: 'row', margin: 'auto', width: '500px', height: 'maxContent'}}
     return (
-        <Grid container spacing={0}>
-            <Grid item xs={6}>
-                <LinearCardUI />
-            </Grid>
-            <Grid item xs={6}>
-                <CreateCardUI />
-            </Grid>
-        </Grid>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'column', md: 'row', lg: 'row' }, marginRight: 'auto', marginLeft: 'auto', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+            <LinearCardUI />
+            <CreateCardUI />
+        </Box>
     )
 }

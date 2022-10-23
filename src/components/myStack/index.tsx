@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Card, CardContent, Tooltip, Slide } from "@mui/material";
-import { SiJavascript, SiTypescript, SiNodedotjs, SiReact, SiNextdotjs, SiExpress, SiGit, SiFirebase, SiHtml5, SiCss3, SiWebstorm, SiVisualstudiocode, SiStripe, SiMaterialui, SiPostman } from "react-icons/si";
+import { SiGraphql, SiTypescript, SiNodedotjs, SiPostgresql, SiReact, SiNextdotjs, SiExpress, SiGit, SiFirebase, SiHtml5, SiCss3, SiWebstorm, SiVisualstudiocode, SiStripe, SiMaterialui, SiPostman } from "react-icons/si";
 import { AiFillDatabase } from "react-icons/ai";
 /*
 * Techs:
@@ -22,7 +22,6 @@ import { AiFillDatabase } from "react-icons/ai";
 * */
 
 const iconsAndTitles = [
-    { icon: <SiJavascript size={30} />, title: "JavaScript", iconName: 'SiJavascript' },
     { icon: <SiTypescript size={30} />, title: "TypeScript", iconName: 'SiTypescript' },
     { icon: <SiNodedotjs size={30} />, title: "Node.js", iconName: 'SiNodedotjs' },
     { icon: <SiReact size={30} />, title: "React.js", iconName: 'SiReact' },
@@ -30,14 +29,14 @@ const iconsAndTitles = [
     { icon: <SiExpress size={30} />, title: "Express.js", iconName: 'SiExpress' },
     { icon: <SiGit size={30} />, title: "Git", iconName: 'SiGit' },
     { icon: <SiFirebase size={30} />, title: "Firebase", iconName: 'SiFirebase' },
-    { icon: <AiFillDatabase size={30} />, title: "NoSQL Databases", iconName: 'AiFillDatabase' },
+    { icon: <SiPostgresql size={30} />, title: "PostgreSQL", iconName: 'SiPostgresql' },
     { icon: <SiHtml5 size={30} />, title: "HTML", iconName: 'SiHtml5' },
     { icon: <SiCss3 size={30} />, title: "CSS", iconName: 'SiCss3' },
     { icon: <SiWebstorm size={30} />, title: "WebStorm", iconName: 'SiWebstorm' },
     { icon: <SiVisualstudiocode size={30} />, title: "VSCode", iconName: 'SiVisualstudiocode' },
     { icon: <SiStripe size={30} />, title: "Stripe API", iconName: 'SiStripe' },
     { icon: <SiMaterialui size={30} />, title: "Material UI", iconName: 'SiMaterialui' },
-    { icon: <SiPostman size={30} />, title: "Postman", iconName: 'SiPostman' },
+    { icon: <SiGraphql size={30} />, title: "GraphQL", iconName: 'SiGraphql' },
 ];
 
 export default function MyStack() {

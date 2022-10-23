@@ -16,6 +16,9 @@ import React from "react";
 import ProjectTechnologies from "../../projects/ProjectTechnologies";
 import ProjectLinks from "../../projects/ProjectLinks";
 import CircleIcon from '@mui/icons-material/Circle';
+import CardHeader from '../../CardHeader';
+import CardBody from "../../CardBody";
+import CardIcons from "../../CardIcons";
 
 interface ITechnologies {
     name: string,
@@ -30,30 +33,35 @@ interface ILinearData {
 
 const linear_data:ILinearData = {
     bulletPoints: [
-        'Performed tasks synchronously with a large team.',
-        'Used many different technologies like GraphQL, SQL, React etc.',
-        'Client-side and server-side work.',
+        'Worked on multiple production applications.',
+        'Used many different technologies like; GraphQL, PostgreSQL, React and more.',
+        'Full stack work.',
     ],
     technologies: [
         {
             name: 'Node.js',
             Icon: <Icon icon="akar-icons:node-fill" />,
-            url: 'https://'
+            url: 'https://nodejs.org/en/'
+        },
+        {
+          name: 'TypeScript',
+          Icon: <Icon icon="akar-icons:typescript-fill" />,
+          url: 'https://www.typescriptlang.org/'
         },
         {
             name: 'GraphQL',
-            Icon: <Icon icon="simple-icons:express" />,
-            url: 'https://'
+            Icon: <Icon icon="akar-icons:graphql-fill" />,
+            url: 'https://graphql.org/'
         },
         {
             name: 'React.js',
-            Icon: <Icon icon="bxl:stripe" />,
-            url: 'https://'
+            Icon: <Icon icon="akar-icons:react-fill" />,
+            url: 'https://reactjs.org/'
         },
         {
-            name: 'Discord.js',
-            Icon: <Icon icon="carbon:logo-discord" />,
-            url: 'https://'
+            name: 'PostgreSQL',
+            Icon: <Icon icon="akar-icons:postgresql-fill" />,
+            url: 'https://www.postgresql.org/'
         }
     ]
 }
@@ -70,7 +78,7 @@ export default function LinearCardUI(): JSX.Element {
 
     return (
         <>
-            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex' }, height: '100%', maxWidth: 'fitContent', paddingBottom: '2rem', margin: '0 auto', paddingTop: '5rem' }}>
+            <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex', lg: 'flex', xl: 'flex' }, flexDirection: 'row', height: '100%', maxWidth: 'fitContent', paddingBottom: '2rem', margin: '0 auto', paddingTop: '5rem' }}>
                 <Slide
                     direction='right'
                     in={true}
@@ -88,45 +96,10 @@ export default function LinearCardUI(): JSX.Element {
                         }}
                     >
                         <CardContent>
-                            <Typography sx={{
-                                fontSize: '24px',
-                                fontWeight: '700',
-                            }}>
-                                Software Engineer
-                            </Typography>
-                            <Typography sx={{
-                                fontWeight: '700',
-                                paddingTop: '7px',
-                                paddingBottom: '7px',
-                            }}>
-                                <Link target='_blank' href='https://create.xyz' sx={{
-                                    cursor: 'pointer',
-                                    textDecoration: 'underline',
-                                    textUnderlineOffset: '5px',
-                                    transition: 'all 0.2s ease-in-out',
-                                    letterSpacing: '-0.3px',
-                                    '&:hover': {
-                                        color: '#18ab02',
-                                        letterSpacing: '0px',
-                                    }
-                                }}
-                                >
-                                    Create, Inc.
-                                </Link>
-                            </Typography>
-                            <List dense>
-                                { linear_data.bulletPoints.map((data, index) => (
-                                    <ListItem key={index}>
-                                        <ListItemIcon >
-                                            <CircleIcon sx={{ height: '10px', width: '10px', marginRight: '-20px', marginBottom: '5px' }} />
-                                        </ListItemIcon>
-                                        <ListItemText sx={{ marginTop: '-5px', marginLeft: '-25px' }}>
-                                            {data}
-                                        </ListItemText>
-                                    </ListItem>
-                                ))}
-                            </List>
+                            <CardHeader title='Software Engineer' linkUrl='https://create.xyz' linkTitle='Create Inc.' />
+                            <CardBody bulletPoints={linear_data.bulletPoints} />
                             <Divider />
+                            <CardIcons technologies={linear_data.technologies}  />
                         </CardContent>
                     </Card>
                 </Slide>
@@ -149,78 +122,11 @@ export default function LinearCardUI(): JSX.Element {
                         }}
                     >
                         <CardContent>
-                            <Typography sx={{
-                                fontSize: '24px',
-                                fontWeight: '700',
-                            }}>
-                                Client Onboarding and Initialization
-                            </Typography>
-                            <Typography sx={{
-                                fontWeight: '700',
-                                paddingTop: '7px',
-                                paddingBottom: '7px',
-                            }}>
-                                <Link target='_blank' href='https://linear.tools' sx={{
-                                    cursor: 'pointer',
-                                    textDecoration: 'underline',
-                                    textUnderlineOffset: '5px',
-                                    transition: 'all 0.2s ease-in-out',
-                                    letterSpacing: '-0.3px',
-                                    '&:hover': {
-                                        color: '#18ab02',
-                                        letterSpacing: '0px',
-                                    }
-                                }}
-                                >
-                                    Linear Tools
-                                </Link>
-                            </Typography>
-                            <List dense>
-                                { linear_data.bulletPoints.map((data, index) => (
-                                    <ListItem key={index}>
-                                        <ListItemIcon >
-                                            <CircleIcon sx={{ height: '10px', width: '10px', marginRight: '-20px', marginBottom: '5px' }} />
-                                        </ListItemIcon>
-                                        <ListItemText sx={{ marginTop: '-5px', marginLeft: '-25px' }}>
-                                            {data}
-                                        </ListItemText>
-                                    </ListItem>
-                                ))}
-                            </List>
-                            <Divider />
-                            <List dense>
-                                {linear_data.technologies.map((technology, index) => (
-                                    <ListItem key={index}>
-                                        <ListItemIcon sx={{
-                                            marginRight: '-20px',
-                                            marginLeft: '-20px',
-                                        }}>
-                                            {technology.Icon}
-                                        </ListItemIcon>
-                                        <ListItemText sx={{ marginTop: '-5px', marginBottom: '-5px' }}>
-                                            <Typography sx={{
-                                                fontWeight: '700'
-                                            }}>
-                                                <Link href={technology.url} sx={{
-                                                    cursor: 'pointer',
-                                                    textDecoration: 'underline',
-                                                    textUnderlineOffset: '5px',
-                                                    transition: 'all 0.2s ease-in-out',
-                                                    letterSpacing: '-0.3px',
-                                                    '&:hover': {
-                                                        color: '#18ab02',
-                                                        letterSpacing: '0px',
-                                                    }
-                                                }}
-                                                >
-                                                    {technology.name}
-                                                </Link>
-                                            </Typography>
-                                        </ListItemText>
-                                    </ListItem>
-                                ))}
-                            </List>
-                            <Divider />
+                          <CardHeader title='Software Engineer' linkUrl='https://create.xyz' linkTitle='Create Inc.' />
+                          <CardBody bulletPoints={linear_data.bulletPoints} />
+                          <Divider />
+                          <CardIcons technologies={linear_data.technologies}  />
+                          <Divider />
                         </CardContent>
                     </Card>
                 </Slide>
